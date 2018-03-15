@@ -237,7 +237,7 @@ Miriad
  Dr.
  Houde and I interpreted the data and detailed the arguments present in
  the paper to support the reliability of the signals.
- I was primarily responsible for writing drafts of the paper and this report.
+ I was responsible for writing drafts of the paper and this report.
 \end_layout
 
 \begin_layout Standard
@@ -285,19 +285,40 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+Stars form when clouds of gas and dust collapse gravitationally until they
+ are hot enough to ignite fusion in the core.
+ Assuming that gravity is the dominant force in the star formation process
+ one can calculate several parameters such as the maximum mass stable to
+ gravitational collapse (the Jeans mass), and the free-fall timescale for
+ such a collapse.
+ However, the presence of turbulence and magnetic fields in a molecular
+ cloud complicates star formation, either by slowing down the collapse or
+ preventing it from happening at all.
+ Developing methods of measuring and characterizing turbulence and magnetic
+ fields in molecular clouds is an important research focus in star formation,
+ and the topic of this report focuses on polarimetry, the dominant method
+ for measuring the magnetic field.
+\end_layout
+
+\begin_layout Standard
+Magnetic Fields in molecular clouds
+\end_layout
+
+\begin_layout Standard
 * Star Formation and Magnetic Fields
+\end_layout
+
+\begin_layout Standard
+*magnetic fields: summarize theories, summarize biggest results (the hourglass
+ shape from the SMA is neat
 \end_layout
 
 \begin_layout Standard
 * doors always open when new ways of measuring things are developed
 \end_layout
 
-\begin_layout Section
-Research Methods
-\end_layout
-
 \begin_layout Subsection
-Polarimetry
+Polarimetry of Magnetic Fields
 \end_layout
 
 \begin_layout Standard
@@ -306,6 +327,10 @@ Polarimetry
 
 \begin_layout Standard
 * How do you get magnetic field from DCF?
+\end_layout
+
+\begin_layout Section
+Research Methods
 \end_layout
 
 \begin_layout Subsection
@@ -344,6 +369,22 @@ key "Chandrasekhar1953"
 
 Chandrasekhar, S., & Fermi, E.
  1953 ApJ, 118, 113
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Crutcher(2012)"
+key "Crutcher2012"
+
+\end_inset
+
+Crutcher, R.
+ M.
+ 2012 Annu.
+ Rev.
+ Astron.
+ Astrophys, 50, 29-63
 \end_layout
 
 \end_body
