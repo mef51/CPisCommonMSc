@@ -18,3 +18,7 @@
 		* do not include getramsdata.sh
 		* include notes.md. maybe take out the AI schpeel. or maybe don't include notes.md
 	* upload the paper repo
+
+May 3
+-----
+* intro (1, 1.1)

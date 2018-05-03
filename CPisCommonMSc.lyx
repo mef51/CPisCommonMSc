@@ -301,11 +301,165 @@ Stars form when clouds of gas and dust collapse gravitationally until they
 \end_layout
 
 \begin_layout Standard
-Magnetic Fields in molecular clouds
+The magnetic field in a molecular cloud can provide support against gravitationa
+l collapse, and the strength of the field can determine the timescale at
+ which collapse happens.
+ The critical mass of a cloud is 
+\begin_inset Formula 
+\begin{equation}
+M_{\Phi}=\frac{\Phi}{2\pi\sqrt{G}},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is the magnetic flux in the cloud 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Nakano1978,Crutcher2012"
+
+\end_inset
+
+.
+ Clouds with masses below this mass are called subcritical and are supported
+ against collapse by the magnetic field, while clouds with a mass higher
+ than 
+\begin_inset Formula $M_{\Phi}$
+\end_inset
+
+ will collapse and form stars 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Nakano1978,Crutcher2012"
+
+\end_inset
+
+.
+ In clouds that are subcritical ions are locked to the magnetic field lines
+ and only neutral dust and gas can collapse into the core of the cloud,
+ eventually causing the mass to increase and become supercritical 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ In clouds with weak fields the mass is already supercritical and turbulence
+ plays a larger role in driving collapse 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-* Star Formation and Magnetic Fields
+These theoretical models make several observable predictions.
+ The simplest is that regions with strong fields will have smooth field
+ lines throughout all stages of the cloud's collapse 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ Collapsing clouds that are supported by strong magnetic fields will form
+ oblate spheroids since the cloud has more support along the direction perpendic
+ular to the field, which should be observable 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ In addition, a region with initially parallel field lines will begin to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+pinch
+\begin_inset Quotes erd
+\end_inset
+
+ as the cloud collapses, creating a very beautiful hourglass morphology
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ An example of this hourglass can be seen in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NGC1333"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ngc1333.png
+	lyxscale 80
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NGC1333"
+
+\end_inset
+
+A map of NGC1333 IRAS4A made with the Submillimeter Array (SMA).
+ Colours and contours show continuum dust emission, red vectors show the
+ magnetic field in the plane of the sky 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Girart2006"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -317,16 +471,109 @@ Magnetic Fields in molecular clouds
 * doors always open when new ways of measuring things are developed
 \end_layout
 
+\begin_layout Standard
+Understanding the details of the star formation process are a strong reason
+ for developping the methodology of measuring magnetic fields around star
+ forming regions and the interstellar medium.
+ In astronomy, new tools for observing the universe frequently reveal surprising
+ results and open doors into future fields, and this methodology is no exception.
+\end_layout
+
 \begin_layout Subsection
-Polarimetry of Magnetic Fields
+Magnetic Fields through Polarimetry 
 \end_layout
 
 \begin_layout Standard
-* why is radiation from the ISM polarized? (GK and dust alignment)
+Maps of the magnetic field like that shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NGC1333"
+
+\end_inset
+
+ are made by measuring the polarization state of the light incident on a
+ telescope.
+ Inferring the magnetic field from the measured polarization state is usually
+ done either through broadband measurements of continuum thermal emission
+ from dust or using rotational transitions of molecules, like CO.
+ Measuring molecular transitions has the advantage of higher intensities
+ compared to measuring thermal dust emission.
+ In addition, by selecting different molecules we can obtain tomographic
+ information and more detail about the structure of the cloud.
+ This section will give a brief overview of the two methods, and gives context
+ to certain challenges with polarimetry on molecular spectral lines that
+ the work presented here highlights.
 \end_layout
 
 \begin_layout Standard
-* How do you get magnetic field from DCF?
+The mechanisms that give rise to polarized light in dust versus in molecules
+ though both different, are related to the strength of the magnetic field
+ in the environment.
+ Dust grains will align themselves perpendicular to the magnetic field due
+ to asymmetric radiative torques, causing any thermal emission from long
+ grains to be linearly polarized perpendicular to the field (source?).
+ Molecules interact with the magnetic field and through the Goldreich-Kylafis
+ (GK) effect can emit a small percentage of radiation that is linearly polarized
+ either perpendicular or parallel to the plane of the sky component of the
+ magnetic field 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Goldreich1981"
+
+\end_inset
+
+.
+ The degeneracy in the direction of the magnetic field is usually resolved
+ by measuring continnuum emission along with molecular emission.
+ 
+\end_layout
+
+\begin_layout Standard
+The stronger the magnetic field is in a region the stronger the alignment
+ is of dust and molecules with the field.
+ Therefore if we see a large dispersion in polarization angles (PAs) in
+ a region then we might conclude that the field is weaker compared to a
+ region where the PAs were more uniform.
+ This idea is formally expressed by the Davis-Chandrasekhar-Fermi (DCF)
+ method where the measured dispersion of PAs can be used to calculate a
+ value for the plane of the sky component of the magnetic field according
+ to 
+\begin_inset Formula 
+\begin{equation}
+B_{POS}=\sqrt{4\pi\rho}\frac{\delta V}{\delta\phi},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is the gas density, 
+\begin_inset Formula $\delta V$
+\end_inset
+
+ is the velocity dispersion (what's that?) and 
+\begin_inset Formula $\delta\phi$
+\end_inset
+
+ is the dispersion in PAs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Davis1951,Chandrasekhar1953,Crutcher2012"
+
+\end_inset
+
+.
+ This method has proven useful and has seen several extensions and refinements
+ in recent years 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hildebrand2009,Houde2009"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -374,6 +621,36 @@ Chandrasekhar, S., & Fermi, E.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Cortes et al.(2005)"
+key "Cortes2005"
+
+\end_inset
+
+Cortes, P.
+ C., Crutcher, R.
+ M.
+ & Watson, W.
+ D.
+ 2005, ApJ, 628, 780.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Cotton et al.(2011)"
+key "Cotton2011"
+
+\end_inset
+
+Cotton, W.
+ D., Ragland, S., & Danchi, W.
+ C.
+ 2011, ApJ, 736, 96
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Crutcher(2012)"
 key "Crutcher2012"
 
@@ -385,6 +662,390 @@ Crutcher, R.
  Rev.
  Astron.
  Astrophys, 50, 29-63
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Davis(1951)"
+key "Davis1951"
+
+\end_inset
+
+Davis, L., Jr.
+ 1951, PhRv, 81, 890
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Girart et al.(1999)"
+key "Girart1999"
+
+\end_inset
+
+Girart, J.
+ M., Crutcher, R.
+ M.
+ & Rao, R.
+ 1999, ApJ, 525, L109.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Girart, Rao, \\& Marrone(2006)"
+key "Girart2006"
+
+\end_inset
+
+Girart, J.
+ M., Rao, R., Marrone, D.
+ P.
+ 2006 Science, 313, 5788, 812-814
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Girart et al.(2012)"
+key "Girart2012"
+
+\end_inset
+
+Girart, J.
+ M., Patel, N., Vlemmings, W.
+ H.
+ T., & Rao, R.
+ 2012, ApJ, 751, L20.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Glenn et al.(1997)"
+key "Glenn1997"
+
+\end_inset
+
+Glenn, J., Walker, C.
+ K., Bieging, J.
+ H., et al.
+ 1997, ApJ, 487, L89.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Goldreich \\& Kylafis(1981)"
+key "Goldreich1981"
+
+\end_inset
+
+Goldreich, P., Kylafis, N.
+ D.
+ 1981 ApJ, 243, L75-L78
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Greaves et al.(1999)"
+key "Greaves1999"
+
+\end_inset
+
+Greaves, J.
+ S., Holland, W.
+ S., Friberg, P., et al.
+ 1999, ApJ, 512, L139.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hamaker et al.(1996)"
+key "Hamaker1996"
+
+\end_inset
+
+Hamaker, J.
+ P., Bregman, J.
+ D., & Sault, R.
+ J.
+ 1996 A&A Suppl.
+ Ser., 117, 137-147
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hezareh et al.(2010)"
+key "Hezareh2010"
+
+\end_inset
+
+Hezareh, T., & Houde, M.
+ 2010, PASP, 122, 786
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hezareh et al.(2013)"
+key "Hezareh2013"
+
+\end_inset
+
+Hezareh, T.
+ J., Wiesemeyer, H., Houde, M., Gusdorf, A., Siringo, G.
+ 2013 A&A, 558, A45
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hildebrand et al.(2009)"
+key "Hildebrand2009"
+
+\end_inset
+
+Hildebrand, R.
+ G., Kirby, L., Dotson.
+ J.
+ L., Houde, M., Vaillancourt, J.
+ E.
+ 2009 ApJ, 696, 567-573
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Houde et al.(2009)"
+key "Houde2009"
+
+\end_inset
+
+Houde, M., Vaillancour, J.
+ E., Hildebrand, R.
+ H., Chitsazzadeh, S., & Kirby, L., 2009 ApJ, 706, 1504
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Houde et al.(2013)"
+key "Houde2013"
+
+\end_inset
+
+Houde, M., Hezareh, T., Jones, S., & Rajabi, F.
+ 2013 ApJ, 764, 24
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Houde(2014)"
+key "Houde2014"
+
+\end_inset
+
+Houde, M.
+ 2014 ApJ, 795, 27
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hull et al.(2014)"
+key "Hull2014"
+
+\end_inset
+
+Hull, C.
+ L.
+ H., Plambeck, R.
+ L., Kwon, W., Bower, G.
+ C., Carpenter, J.
+ M., Crutcher, R.
+ M., et al.
+ 2014, ApJ Suppl., 213, 13
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Lai et al.(2003)"
+key "Lai2003"
+
+\end_inset
+
+Lai, S.-P., Girart, J.
+ M.
+ & Crutcher, R.
+ M.
+ 2003, ApJ, 598, 392.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Mu\\~{n}oz et al.(2012)"
+key "Munoz2012"
+
+\end_inset
+
+Mu
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+~{n}
+\end_layout
+
+\end_inset
+
+oz, D.
+ J., Marrone, D.
+ P., Moran, J.
+ M., & Rao, R.
+ 2012 ApJ, 745, 115
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Marrone et al.(2008)"
+key "Marrone2008"
+
+\end_inset
+
+Marrone, D.
+ P.
+ & Rao, R.
+ 2008, Proc.
+ SPIE 7020, 70202B
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Nakano \\& Nakamura(1978)"
+key "Nakano1978"
+
+\end_inset
+
+Nakano, T., Nakamura, T.
+ 1978 Publ.
+ Astron.
+ Soc.
+ Japan 30, 671-679
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Sault et al.(1995)"
+key "Sault1995"
+
+\end_inset
+
+Sault, R.
+ J., Teuben, P.
+ J.
+ & Wright M.
+ C.
+ H.
+ 1995 ADASS IV, ASP Conference Series, 77, 433-436
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Sault et al.(1996)"
+key "Sault1996"
+
+\end_inset
+
+Sault, R.
+ J., Hamaker, J.
+ P., & Bregman, J., D.
+ 1996 A&A Suppl.
+ Ser., 117, 149-159
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Sault et al.(2008)"
+key "Sault2008"
+
+\end_inset
+
+Sault, R.
+ J., Killeen, N.
+ 2008, Miriad Users Guide, Australia Telescope National Facility
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Schwab(1980)"
+key "Schwab1980"
+
+\end_inset
+
+Schwab, F.
+ R.
+ 1980, Proc.
+ SPIE 0231, Intl Optical Computing Conf I
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Tang et al.(2010)"
+key "Tang2010"
+
+\end_inset
+
+Tang, Y.-W., Ho, P.
+ T.
+ P., Koch, P.
+ M., & Rao, R.
+ 2010, ApJ, 717, 1262.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Thompson et al.(2001)"
+key "Thompson2001"
+
+\end_inset
+
+Thompson, A.
+ R., Moran, J.
+ M., & Swenson Jr, G.
+ W.
+ 2001, Interferometry and synthesis in radio astronomy (John Wiley & Sons)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "J. P. Vallée(2011)"
+key "Vallee2011"
+
+\end_inset
+
+Vallée, J.
+ P.
+ 2011, New Astronomy Reviews 55, 23–90
 \end_layout
 
 \end_body
