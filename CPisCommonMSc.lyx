@@ -286,7 +286,7 @@ Introduction
 
 \begin_layout Standard
 Stars form when clouds of gas and dust collapse gravitationally until they
- are hot enough to ignite fusion in the core.
+ are hot enough to ignite fusion in their core.
  Assuming that gravity is the dominant force in the star formation process
  one can calculate several parameters such as the maximum mass stable to
  gravitational collapse (the Jeans mass), and the free-fall timescale for
@@ -295,9 +295,9 @@ Stars form when clouds of gas and dust collapse gravitationally until they
  cloud complicates star formation, either by slowing down the collapse or
  preventing it from happening at all.
  Developing methods of measuring and characterizing turbulence and magnetic
- fields in molecular clouds is an important research focus in star formation,
- and the topic of this report focuses on polarimetry, the dominant method
- for measuring the magnetic field.
+ fields in molecular clouds is an important research focus in star formation.
+ This report focuses on polarimetry, the dominant method for measuring the
+ magnetic field.
 \end_layout
 
 \begin_layout Standard
@@ -463,17 +463,8 @@ key "Girart2006"
 \end_layout
 
 \begin_layout Standard
-*magnetic fields: summarize theories, summarize biggest results (the hourglass
- shape from the SMA is neat
-\end_layout
-
-\begin_layout Standard
-* doors always open when new ways of measuring things are developed
-\end_layout
-
-\begin_layout Standard
 Understanding the details of the star formation process are a strong reason
- for developping the methodology of measuring magnetic fields around star
+ for developing the methodology of measuring magnetic fields around star
  forming regions and the interstellar medium.
  In astronomy, new tools for observing the universe frequently reveal surprising
  results and open doors into future fields, and this methodology is no exception.
@@ -500,7 +491,7 @@ reference "fig:NGC1333"
  compared to measuring thermal dust emission.
  In addition, by selecting different molecules we can obtain tomographic
  information and more detail about the structure of the cloud.
- This section will give a brief overview of the two methods, and gives context
+ This section will give a brief overview of the two methods and gives context
  to certain challenges with polarimetry on molecular spectral lines that
  the work presented here highlights.
 \end_layout
@@ -533,7 +524,7 @@ The stronger the magnetic field is in a region the stronger the alignment
  is of dust and molecules with the field.
  Therefore if we see a large dispersion in polarization angles (PAs) in
  a region then we might conclude that the field is weaker compared to a
- region where the PAs were more uniform.
+ region where the PAs are more uniform.
  This idea is formally expressed by the Davis-Chandrasekhar-Fermi (DCF)
  method where the measured dispersion of PAs can be used to calculate a
  value for the plane of the sky component of the magnetic field according
@@ -553,7 +544,7 @@ where
 \begin_inset Formula $\delta V$
 \end_inset
 
- is the velocity dispersion (what's that?) and 
+ is the velocity dispersion (what's that? the bandwidth?) and 
 \begin_inset Formula $\delta\phi$
 \end_inset
 
@@ -576,8 +567,66 @@ key "Hildebrand2009,Houde2009"
 .
 \end_layout
 
+\begin_layout Standard
+Since the PA is the critical piece of information that connects polarization
+ measurements to the strength of the magnetic field, any effects that reduce
+ the polarization percentage or rotate the PA will taint the measurement
+ of the magnetic field.
+ Two important examples of this that concern this report are the presence
+ of polarized light due to the telescope's instrumentation 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g. see"
+key "Hamaker1996,Sault1996,Marrone2008"
+
+\end_inset
+
+ and anisotropic resonant scattering (ARS) from molecular transitions, which
+ in principle converts linear polarization (LP) to circular polarization
+ (CP) along the line of sight 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Houde2013,Hezareh2013"
+
+\end_inset
+
+.
+ Since it may be possible to retrieve the 'lost' LP by measuring CP 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hezareh2013"
+
+\end_inset
+
+, and the ARS effect is a common occurence in molecular clouds (this work),
+ measuring CP simultaneously with LP when doing molecular spectral line
+ polarimetry may be essential to obtaining accurate measurements of the
+ magnetic field.
+ 
+\end_layout
+
 \begin_layout Section
 Research Methods
+\end_layout
+
+\begin_layout Standard
+The data presented in the attached paper were collected from the archive
+ of the Submillimeter Array (SMA), an array of eight 6m radio telescopes
+ located at Mauna Kea, Hawaii.
+ This section will describe the basic principles of radio interferometry,
+ how polarimetric data is collected with the SMA, and an overview of the
+ data reduction process using the 
+\emph on
+Miriad 
+\emph default
+data reduction package 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault1995"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -589,7 +638,89 @@ Radio Interferometry
 \end_layout
 
 \begin_layout Standard
+Radio interferometry is a technique for obtaining high-resolution maps of
+ objects in the sky that avoids building gigantic primary reflectors and
+ relies on computationally intensive data analysis tasks.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the resolution of a telescope goes as 
+\begin_inset Formula $\theta\propto\lambda/D$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the diameter of the primary reflector, we aim to build larger and larger
+ mirrors and radio dishes, which becomes very challenging when seeking resolutio
+ns of 
+\begin_inset Formula $<1"$
+\end_inset
+
+ at radio wavelengths.
+ To illustrate how we can attain a higher resolution without building a
+ massive reflector, consider a dish with a diameter 500m across: this dish
+ gives us high resolution but is beyond our ability to manufacture.
+ Imagine now that we remove sections or obstruct large sections of this
+ reflector.
+ The images we would obtain from such a 
+\begin_inset Quotes eld
+\end_inset
+
+patchy
+\begin_inset Quotes erd
+\end_inset
+
+ reflector are now in fact the Fourier transform of the intensity map of
+ the object being examined on the sky, much like how the support struts
+ on Hubble for example cause imaged stars to have a cross pattern on them.
+ With radio inteferometry, we obtain the resolution of a large dish by sampling
+ the light it would recieve and inferring the true sky image by measuring
+ its Fourier transform.
+\end_layout
+
+\begin_layout Standard
+The resolution of the interferometer array is determined by the longest
+ baseline seperation 
+\begin_inset Formula $B_{max}$
+\end_inset
+
+ between any two elements of the array.
+ This 
+\begin_inset Formula $B_{max}$
+\end_inset
+
+ is effectively the diameter of our 
+\begin_inset Quotes eld
+\end_inset
+
+patchy
+\begin_inset Quotes erd
+\end_inset
+
+ reflector.
+ However while the resolution defines the smallest scale object that is
+ resolvable an interferometer also has a limit on the largest resolvable
+ object, which is defined by the shortest baseline 
+\begin_inset Formula $B_{min}$
+\end_inset
+
+ of any two elements in the array.
+ 
+\end_layout
+
+\begin_layout Standard
 * how do you get an image? (fourier transforms)
+\end_layout
+
+\begin_layout Standard
+* How does the SMA do polarimetry?
+\end_layout
+
+\begin_layout Standard
+* include a photo of the QWP
 \end_layout
 
 \begin_layout Subsection
@@ -598,8 +729,24 @@ Data Reduction with
 Miriad
 \end_layout
 
+\begin_layout Standard
+* invert, clean, selfcal
+\end_layout
+
 \begin_layout Subsection
 Code Repositories
+\end_layout
+
+\begin_layout Standard
+* data repo (SMAData)
+\end_layout
+
+\begin_layout Standard
+* plot code (squintscripts)
+\end_layout
+
+\begin_layout Standard
+* squint code and Miriad wrapper (smautils)
 \end_layout
 
 \begin_layout Section
@@ -826,7 +973,7 @@ key "Houde2009"
 
 \end_inset
 
-Houde, M., Vaillancour, J.
+Houde, M., Vaillancourt, J.
  E., Hildebrand, R.
  H., Chitsazzadeh, S., & Kirby, L., 2009 ApJ, 706, 1504
 \end_layout

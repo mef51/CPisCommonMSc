@@ -4,6 +4,8 @@
 	CP/ARS and its implications
 	measuring with radio interfometry
 	code? miriad? overview of github repo?
+	* dust emission and why it is polarized in a magnetic field
+	* molecular emission and why it is polarized (GK effect)
 
 * repos to push:
 	* upload smautils (miriad.py + squint.py) "Miriad python wrapper plus squint correction used in blah"
