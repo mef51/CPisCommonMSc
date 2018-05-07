@@ -1178,11 +1178,11 @@ implements and performs most of the required computational tasks for calibrating
 \end_layout
 
 \begin_layout Standard
-* invert, clean, selfcal
+* invert, clean, selfcal (what's the math?)
 \end_layout
 
 \begin_layout Standard
-* my sexy python wrapper
+* my sexy python wrapper (what's the code look like?)
 \end_layout
 
 \begin_layout Subsection
