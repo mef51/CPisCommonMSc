@@ -591,7 +591,7 @@ key "Houde2013,Hezareh2013"
 \end_inset
 
 .
- Since it may be possible to retrieve the 'lost' LP by measuring CP 
+ Since it may be possible to retrieve the `lost' LP by measuring CP 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Hezareh2013"
@@ -634,14 +634,9 @@ Radio Interferometry
 \end_layout
 
 \begin_layout Standard
-* why does it work?
-\end_layout
-
-\begin_layout Standard
 Radio interferometry is a technique for obtaining high-resolution maps of
  objects in the sky that avoids building gigantic primary reflectors and
  relies on computationally intensive data analysis tasks.
- 
 \end_layout
 
 \begin_layout Standard
@@ -664,8 +659,7 @@ Since the resolution of a telescope goes as
  To illustrate how we can attain a higher resolution without building a
  massive reflector, consider a dish with a diameter 500m across: this dish
  gives us high resolution but is beyond our ability to manufacture.
- Imagine now that we remove sections or obstruct large sections of this
- reflector.
+ Imagine now that we remove or obstruct large sections of this reflector.
  The images we would obtain from such a 
 \begin_inset Quotes eld
 \end_inset
@@ -676,11 +670,11 @@ patchy
 
  reflector are now in fact the Fourier transform of the intensity map of
  the object being examined on the sky, much like how the support struts
- on Hubble for example cause imaged stars appear to have a superimposed
+ on, for example, Hubble cause imaged stars appear to have a superimposed
  cross pattern.
  With radio inteferometry, we obtain the resolution of a large dish by sampling
  the light it would recieve and inferring the true sky image from the measured
- its Fourier transform.
+ Fourier transform.
 \end_layout
 
 \begin_layout Standard
@@ -714,12 +708,15 @@ patchy
 \end_layout
 
 \begin_layout Standard
-The output of the interferometer is the visibility function 
+The output of a radio interferometer is the visibility function 
 \begin_inset Formula $\mathcal{V}(u,v)$
 \end_inset
 
 , which is found by correlating the voltage signals from a pair of antennae.
- The coordinates 
+ This correlation is done on-the-fly by an onsite computer called the correlator
+ and the raw voltage signals are often discarded after the correlation is
+ found due to the prohibitively large amount of data.
+ The arguments 
 \begin_inset Formula $u$
 \end_inset
 
@@ -744,7 +741,7 @@ The output of the interferometer is the visibility function
 \begin_inset Formula $b$
 \end_inset
 
- the visibility is 
+ the visibility is written as
 \begin_inset Formula 
 \begin{equation}
 \mathcal{V}(u,v)=\frac{\langle V_{a}(t)\star V_{b}(t)\rangle}{A_{0}\Delta\nu},\label{eq:vis}
@@ -753,11 +750,19 @@ The output of the interferometer is the visibility function
 \end_inset
 
 where 
-\begin_inset Formula $V_{i}(t)$
+\begin_inset Formula $V_{a}(t)$
 \end_inset
 
- is the measured voltage signal from antenna 
-\begin_inset Formula $i$
+ and 
+\begin_inset Formula $V_{b}(t)$
+\end_inset
+
+ is the measured voltage signal from antennae 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
 \end_inset
 
 , 
@@ -772,7 +777,28 @@ where
 \begin_inset Formula $\langle V_{a}(t)\star V_{b}(t)\rangle$
 \end_inset
 
- denotes the time-averaged cross-correlation of the voltage signals.
+ denotes the time-averaged cross-correlation of the voltage signals, which
+ is defined by 
+\begin_inset Formula 
+\begin{equation}
+\langle V_{a}(t)\star V_{b}(t)\rangle=\lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}V_{a}(t)V_{b}^{*}(t-\tau)dt.
+\end{equation}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is a delay parameter that is chosen based on the type of observations being
+ made 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Thompson2001"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -800,9 +826,18 @@ reference "eq:vis"
 
  are angular positions, through the van Cittert-Zernicke theorem.
  In its most general form the van Cittert-Zernicke theorem proves that incoheren
-t radiation observed from a large distance appears to be coherent.
- Here we prove a special case as it relates to interferometry to show that
- 
+t radiation observed from a large distance appears to be coherent 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "for a derivation"
+before "see chap. 14 of"
+key "Thompson2001"
+
+\end_inset
+
+.
+ Here we prove a consequence of it as it relates to interferometry to show
+ that 
 \begin_inset Formula $\mathcal{V}(u,v)=\mathcal{F}\{I(l,m)\}$
 \end_inset
 
@@ -815,39 +850,316 @@ t radiation observed from a large distance appears to be coherent.
 \end_layout
 
 \begin_layout Standard
-Consider an area on the sky in the beam of an antenna.
- The total voltage response of the antenna's receiver is from the superposition
- of all electromagnetic waves from each position of the object, which can
- be written as: 
+Consider two antennae 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ at positions 
+\begin_inset Formula $(x_{a},y_{a})$
+\end_inset
+
+ and 
+\begin_inset Formula $(x_{b},y_{b})$
+\end_inset
+
+, pointed at the same object.
+ The electric field at antennae 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ from sky position 
+\begin_inset Formula $(l,m)$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+ is given by
 \begin_inset Formula 
 \begin{eqnarray}
-V_{a}(t) & = & \int\int|E(l,m,t)|^{2}dldm,\\
-V_{b}(t) & = & \int\int|E(l,m,t)|^{2}dldm,
+E_{a}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)},\\
+E_{b}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{b}l+y_{b}m)},
 \end{eqnarray}
 
 \end_inset
 
-so the cross-correlation is 
+where 
+\begin_inset Formula $A(l,m,t)$
+\end_inset
+
+ is the amplitude of the field and 
+\begin_inset Formula $\phi(l,m,t)$
+\end_inset
+
+ is the phase of the wave which van Cittert-Zernicke tells us is the same
+ in both 
+\begin_inset Formula $E_{a}(l,m,t)$
+\end_inset
+
+ and 
+\begin_inset Formula $E_{b}(l,m,t)$
+\end_inset
+
+ since the waves are coherent.
+ The total voltage response of the antenna's receiver is the superposition
+ of all electromagnetic waves from each position of the object, which can
+ be written as: 
 \begin_inset Formula 
-\[
-\langle V_{a}(t)\star V_{b}(t)\rangle=
-\]
+\begin{eqnarray}
+V_{a}(t) & = & \int\int E_{a}(l,m,t)\,dl\,dm,\\
+V_{b}(t) & = & \int\int E_{b}(l,m,t)\,dl\,dm,
+\end{eqnarray}
+
+\end_inset
+
+so the complex product is 
+\begin_inset Formula 
+\begin{eqnarray}
+V_{a}(t)\star V_{b}(t) & = & \int_{l,m}E_{a}(l,m,t)\,dl\,dm\times\int_{l,m}E_{b}^{*}(l,m,t)\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
+ &  & \quad e^{-i\phi(l',m',t)-2\pi i(x_{b}l'+y_{b}m')}\,dl\,dm\,dl'\,dm'\nonumber \\
+ & = & \int_{l,m}A(l,m,t)A^{*}(l,m,t)e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm,
+\end{eqnarray}
+
+\end_inset
+
+where the last line follows since the integral is 0 unless 
+\begin_inset Formula $\phi(l,m,t)=\phi(l',m',t)$
+\end_inset
+
+.
+ The positional arguments become 
+\begin_inset Formula $\Delta x\equiv x_{a}-x_{b}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y\equiv y_{a}-y_{b}$
+\end_inset
+
+.
+ After time-averaging we obtain 
+\begin_inset Formula 
+\begin{eqnarray}
+\langle V_{a}(t)\star V_{b}(t)\rangle & = & \int_{l,m}\langle|A(l,m)|^{2}\rangle e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm\nonumber \\
+ & = & \int_{l,m}I(l,m)e^{2\pi i(ul+vm)}\,dl\,dm\nonumber \\
+ & = & \mathcal{F}\{I(l,m)\},\label{eq:ft}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Delta x=u$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta y=v$
+\end_inset
+
+ and 
+\begin_inset Formula $I(l,m)=\langle|A(l,m)|^{2}\rangle$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "chap. 3 of"
+key "Thompson2001,Vanderlinde2017"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ft"
+
+\end_inset
+
+ shows the Fourier transform connection between the cross-correlation and
+ the intensity map 
+\begin_inset Formula $I(l,m)$
+\end_inset
+
+.
+ The intensity map is therefore obtained by performing an inverse 2D Fourier
+ transform on the visibities which is of course limited by how well the
+ visibities have been measured.
+ A single pair of antennae samples a single 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ point in visibility space, meaning that the more baselines there are in
+ the array the better the 
+\begin_inset Formula $uv$
+\end_inset
+
+-coverage and the more accurate the final map is.
+ The 
+\begin_inset Formula $uv$
+\end_inset
+
+-coverage is also greatly improved by the rotation of the Earth since different
+ orientations relative to the object change the 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ coordinates 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Thompson2001"
+
+\end_inset
+
+.
+ Images formed from poorly sampled visibities will result in a large number
+ of periodic `blobs' or `stripes' that are not real and are purely a side-effect
+ of the periodic functions used to perform the Fourier transform.
+ 
+\end_layout
+
+\begin_layout Standard
+To obtain maps at different frequencies the signal must be binned into different
+ spectral channels before being correlated.
+ To obtain maps of specific polarizations in addition to different frequencies,
+ either receivers sensitive to different polarizations must be used (like
+ at ALMA) or the observing time is split so that the receivers are exposed
+ to light of different polarization states.
+ The SMA does the latter strategy and uses a quarter-wave plate (QWP) in
+ the beam of each antenna to sample the two polarization states: left-CP
+ (LCP) and right-CP (RCP).
+ Each antenna can only sample one polarization state at a time, and the
+ QWP is rotated 90
+\begin_inset Formula $^{\circ}$
+\end_inset
+
+ to sample the other state.
+ To obtain full polarimetric information for the visibilities from a single
+ baseline, the two antenna must correlate their responses to every combination
+ of polarization state.
+ That is, if an antenna can sample polarization states '
+\begin_inset Formula $L$
+\end_inset
+
+' and '
+\begin_inset Formula $R$
+\end_inset
+
+' (which corresponds to 90
+\begin_inset Formula $^{\circ}$
+\end_inset
+
+ rotations of the QWP), then, for a pair of antennae, four correlations
+ must be found: 
+\begin_inset Formula $LL$
+\end_inset
+
+, 
+\begin_inset Formula $LR$
+\end_inset
+
+, 
+\begin_inset Formula $RL,$
+\end_inset
+
+ and 
+\begin_inset Formula $RR$
+\end_inset
+
+.
+ On the SMA this is done by rotating the QWPs on both antennae in a cycle
+ that repeats every 4-6 minutes 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Marrone2008"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:qwp"
+
+\end_inset
+
+ shows the SMA's QWP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename SMA_QWP.png
+	lyxscale 50
+	height 25theight%
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-* how do you get an image? (inverse 2d fourier transforms, like INVERT)
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:qwp"
+
+\end_inset
+
+The SMA's quarter-wave plate (QWP) mounted on a rotation stage.
+ Optical brakes (top and bottom left) determine the position of the QWP.
+ Adjustable flags (small screws on perimeter of the rotation stage) at 
+\begin_inset Formula $\pm$
+\end_inset
+
+45
+\begin_inset Formula $^{\circ}$
+\end_inset
+
+ from the top optical brake set the positions of the waveplate 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "from Fig. 1 of"
+key "Marrone2008"
+
+\end_inset
+
+.
+ 
 \end_layout
 
-\begin_layout Standard
-* How does the SMA do polarimetry?
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-* include a photo of the QWP
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1316,14 +1628,21 @@ Thompson, A.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "J. P. Vallée(2011)"
-key "Vallee2011"
+label "Vanderlinde(2017)"
+key "Vanderlinde2017"
 
 \end_inset
 
-Vallée, J.
- P.
- 2011, New Astronomy Reviews 55, 23–90
+Vanderlinde, K.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Radio Telescope Fundamentals
+\begin_inset Quotes erd
+\end_inset
+
+, slide show presentation, Dunlap Summer School, July 2017
 \end_layout
 
 \end_body
