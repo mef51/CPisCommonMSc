@@ -1169,6 +1169,15 @@ Miriad
 \end_layout
 
 \begin_layout Standard
+The data reduction package 
+\emph on
+Miriad 
+\emph default
+implements and performs most of the required computational tasks for calibrating
+ the data and performing the inverse Fourier transform to obtain maps.
+\end_layout
+
+\begin_layout Standard
 * invert, clean, selfcal
 \end_layout
 
