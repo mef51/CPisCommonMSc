@@ -653,9 +653,10 @@ Since the resolution of a telescope goes as
 \begin_inset Formula $D$
 \end_inset
 
- is the diameter of the primary reflector, we aim to build larger and larger
- mirrors and radio dishes, which becomes very challenging when seeking resolutio
-ns of 
+ is the diameter of the primary reflector, we try to build larger and larger
+ mirrors and dishes to obtain higher resolution.
+ However, large enough reflectors become very challenging to build when
+ seeking resolutions of 
 \begin_inset Formula $<1"$
 \end_inset
 
@@ -675,9 +676,10 @@ patchy
 
  reflector are now in fact the Fourier transform of the intensity map of
  the object being examined on the sky, much like how the support struts
- on Hubble for example cause imaged stars to have a cross pattern on them.
+ on Hubble for example cause imaged stars appear to have a superimposed
+ cross pattern.
  With radio inteferometry, we obtain the resolution of a large dish by sampling
- the light it would recieve and inferring the true sky image by measuring
+ the light it would recieve and inferring the true sky image from the measured
  its Fourier transform.
 \end_layout
 
@@ -701,8 +703,8 @@ patchy
 \end_inset
 
  reflector.
- However while the resolution defines the smallest scale object that is
- resolvable an interferometer also has a limit on the largest resolvable
+ However while the resolution defines the scale of the smallest object that
+ is resolvable an interferometer also has a limit on the largest resolvable
  object, which is defined by the shortest baseline 
 \begin_inset Formula $B_{min}$
 \end_inset
@@ -712,7 +714,132 @@ patchy
 \end_layout
 
 \begin_layout Standard
-* how do you get an image? (fourier transforms)
+The output of the interferometer is the visibility function 
+\begin_inset Formula $\mathcal{V}(u,v)$
+\end_inset
+
+, which is found by correlating the voltage signals from a pair of antennae.
+ The coordinates 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+ are the distances between the two antennae 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y$
+\end_inset
+
+, respectively.
+ Given antennae 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ the visibility is 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{V}(u,v)=\frac{\langle V_{a}(t)\star V_{b}(t)\rangle}{A_{0}\Delta\nu},\label{eq:vis}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{i}(t)$
+\end_inset
+
+ is the measured voltage signal from antenna 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $A_{0}$
+\end_inset
+
+ is the collecting area of the dish, 
+\begin_inset Formula $\Delta\nu$
+\end_inset
+
+ is the bandwidth of the receiver, and 
+\begin_inset Formula $\langle V_{a}(t)\star V_{b}(t)\rangle$
+\end_inset
+
+ denotes the time-averaged cross-correlation of the voltage signals.
+ 
+\end_layout
+
+\begin_layout Standard
+The expression shown in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vis"
+
+\end_inset
+
+) can be shown to be equivalent to the Fourier transform of the intensity
+ map (the image) 
+\begin_inset Formula $I(l,m)$
+\end_inset
+
+, where 
+\begin_inset Formula $l$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+ are angular positions, through the van Cittert-Zernicke theorem.
+ In its most general form the van Cittert-Zernicke theorem proves that incoheren
+t radiation observed from a large distance appears to be coherent.
+ Here we prove a special case as it relates to interferometry to show that
+ 
+\begin_inset Formula $\mathcal{V}(u,v)=\mathcal{F}\{I(l,m)\}$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathcal{F}\{\}$
+\end_inset
+
+ denotes the Fourier transform.
+ 
+\end_layout
+
+\begin_layout Standard
+Consider an area on the sky in the beam of an antenna.
+ The total voltage response of the antenna's receiver is from the superposition
+ of all electromagnetic waves from each position of the object, which can
+ be written as: 
+\begin_inset Formula 
+\begin{eqnarray}
+V_{a}(t) & = & \int\int|E(l,m,t)|^{2}dldm,\\
+V_{b}(t) & = & \int\int|E(l,m,t)|^{2}dldm,
+\end{eqnarray}
+
+\end_inset
+
+so the cross-correlation is 
+\begin_inset Formula 
+\[
+\langle V_{a}(t)\star V_{b}(t)\rangle=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+* how do you get an image? (inverse 2d fourier transforms, like INVERT)
 \end_layout
 
 \begin_layout Standard
@@ -731,6 +858,10 @@ Miriad
 
 \begin_layout Standard
 * invert, clean, selfcal
+\end_layout
+
+\begin_layout Standard
+* my sexy python wrapper
 \end_layout
 
 \begin_layout Subsection
