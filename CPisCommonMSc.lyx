@@ -302,9 +302,9 @@ Stars form when clouds of gas and dust collapse gravitationally until they
 
 \begin_layout Standard
 The magnetic field in a molecular cloud can provide support against gravitationa
-l collapse, and the strength of the field can determine the timescale at
+l collapse and the strength of the field can determine the timescale at
  which collapse happens.
- The critical mass of a cloud is 
+ The critical mass of a cloud is given by
 \begin_inset Formula 
 \begin{equation}
 M_{\Phi}=\frac{\Phi}{2\pi\sqrt{G}},
@@ -497,8 +497,8 @@ reference "fig:NGC1333"
 \end_layout
 
 \begin_layout Standard
-The mechanisms that give rise to polarized light in dust versus in molecules
- though both different, are related to the strength of the magnetic field
+The mechanisms that give rise to polarized light from dust versus from molecules
+ are, though different, both related to the strength of the magnetic field
  in the environment.
  Dust grains will align themselves perpendicular to the magnetic field due
  to asymmetric radiative torques, causing any thermal emission from long
@@ -650,8 +650,8 @@ Since the resolution of a telescope goes as
 
  is the diameter of the primary reflector, we try to build larger and larger
  mirrors and dishes to obtain higher resolution.
- However, large enough reflectors become very challenging to build when
- seeking resolutions of 
+ However, reflectors that are large enough become very challenging to build
+ when seeking resolutions of 
 \begin_inset Formula $<1"$
 \end_inset
 
@@ -757,7 +757,7 @@ where
 \begin_inset Formula $V_{b}(t)$
 \end_inset
 
- is the measured voltage signal from antennae 
+ are the measured voltage signals from antennae 
 \begin_inset Formula $a$
 \end_inset
 
@@ -1048,7 +1048,14 @@ To obtain maps at different frequencies the signal must be binned into different
  to sample the other state.
  To obtain full polarimetric information for the visibilities from a single
  baseline, the two antenna must correlate their responses to every combination
- of polarization state.
+ of polarization state 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hamaker1996,Sault1996,Thompson2001,Marrone2008"
+
+\end_inset
+
+.
  That is, if an antenna can sample polarization states `
 \begin_inset Formula $L$
 \end_inset
@@ -1207,16 +1214,17 @@ key "Sault1995"
  
 \emph default
 implements and performs most of the required computational tasks for calibrating
- the data and performing the inverse Fourier transform to obtain maps.
- When observations are taken their brightness is usually calibrated against
- measurements of quasars that are taken during the same night, since the
- quasars used are assumed to be steady, bright, unchanging sources.
+ the data and performing an inverse Fourier transform to obtain maps.
+ When observations are taken the intensity of the visibilities is usually
+ calibrated against measurements of quasars that are taken during the same
+ night, since certain quasars can be assumed to be steady, bright, unchanging
+ sources.
+ The calibration involves calculating gain coefficients to correctly scale
+ the visibilities to their true intensities.
  The data presented in this paper were already calibrated by Dr.
  Rao and Dr.
  Girart, and so the calibration process will not be explained in detail
  here.
- The calibration involves calculating gain coefficients to correctly scale
- the visibilities to their true intensities.
  In 
 \emph on
 Miriad
@@ -1237,7 +1245,14 @@ The
 invert
 \family default
  task performs a standard two-dimensional fast Fourier transform (FFT) on
- a grid whose size can be specified by the user.
+ a grid whose size can be specified by the user 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault2008"
+
+\end_inset
+
+.
  It also generates a beam map that gives the response of the inteferometer
  to a point source based on the location of the antennae in the array and
  the frequency being observed.
@@ -1250,14 +1265,29 @@ invert
 \begin_inset Formula $uv$
 \end_inset
 
--coverage of the array is irregular.
+-coverage of the array is irregular 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974,Thompson2001,Sault2008"
+
+\end_inset
+
+.
  In inteferometry the 
 \begin_inset Formula $uv$
 \end_inset
 
 -coverage is often irregular due to the fact that the placement of dishes
  is limited to the geography of the region (like on Mauna Kea for the SMA)
- and specific dishes often need to be excluded from the data due to malfunction.
+ and specific dishes often need to be excluded from the data due to malfunction
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974"
+
+\end_inset
+
+.
  The beam map, because it is made with observations of a point source, can
  tell us what exactly the pattern of sidelobes is and makes it possible
  to deconvolve the sidelobe pattern from the dirty map, leaving behind the
@@ -1275,7 +1305,18 @@ clean
 \family default
  task in 
 \emph on
-Miriad.
+Miriad 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault2008"
+
+\end_inset
+
+
+\emph on
+.
  
 \end_layout
 
@@ -1287,7 +1328,14 @@ clean
 'ing of the dirty map is perfomed by subtracting the entire dirty beam from
  the position where the dirty map is maximum.
  The amplitude of the dirty beam is usually normalized to be a fraction
- of the maximum of the dirty map, called the loop gain.
+ of the maximum of the dirty map, called the loop gain 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974"
+
+\end_inset
+
+.
  This subtraction is repeated on what remains of the map until nothing is
  left.
  A model is then built by placing point sources at all the positions where
@@ -1300,12 +1348,19 @@ clean
 \begin_inset Quotes erd
 \end_inset
 
- beam, which is the response to a point source given the diameter of a dish,
- the model can be convolved with the clean beam using the 
+ beam, which is the response to a point source given the diameter of a single
+ dish, the model can be convolved with the clean beam using the 
 \family typewriter
 restor 
 \family default
-task to obtain a clean map.
+task to obtain a clean map 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974,Thompson2001,Sault2008"
+
+\end_inset
+
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1320,7 +1375,14 @@ clean
 -ing process on the IRC+10216 data presented in the attached paper.
  Note that the CLEAN algorithm works on extended sources like nebulae or
  molecular clouds essentially by modelling them as a collection of point
- sources.
+ sources 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -1416,9 +1478,11 @@ clean
 .
  Contour levels are at -20%, 20%, 30%, 40%, etc.
  of the maximum.
- Pixels show the same data, darker pixels represent higher intensity.
- Notice the six peaks around the larger central peak in the dirty map are
- also present in the dirty beam and are largely absent in the clean map.
+ Negative contours are dashed.
+ Pixels show the same data, and darker pixels represent higher intensity.
+ Notice the six peaks around the larger central peak in the dirty map that
+ are also present in the dirty beam but are largely absent in the clean
+ map.
 \end_layout
 
 \end_inset
@@ -1436,11 +1500,6 @@ clean
 \end_layout
 
 \begin_layout Standard
-* selfcal –> used to adjust the gain coefficients by doing jacobi iteration
- (maybe leave this out?), equation from paper
-\end_layout
-
-\begin_layout Standard
 Another task critical to the results presented in the paper is 
 \family typewriter
 selfcal
@@ -1449,7 +1508,14 @@ selfcal
 \family typewriter
  
 \family default
-which makes additional corrections to the gain calibration of the data.
+which makes additional corrections to the gain calibration of the data 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault2008"
+
+\end_inset
+
+.
  As explained in the paper this is necessary to correct the very small offset
  between beams of different polarizations that leads to false Stokes 
 \begin_inset Formula $V$
@@ -1472,7 +1538,14 @@ clean
  better fit the model.
  The gain coefficients can be further improved by repeating the self-calibration
  process on a new model generated from the last gain coefficients to be
- found.
+ found 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault2008"
+
+\end_inset
+
+.
  The gain coefficients (which are complex-valued) are searched for and found
  iteratively by minimizing the following error heuristic:
 \begin_inset Formula 
@@ -1502,7 +1575,14 @@ where
 \begin_inset Formula $g_{x}$
 \end_inset
 
- are the complex gain coefficients.
+ are the complex gain coefficients 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Schwab1980,Sault2008"
+
+\end_inset
+
+.
  By finding the gain coefficients that minimze eq.
  (
 \begin_inset CommandInset ref
@@ -1548,15 +1628,20 @@ s tasks make it easy to create scripts to automate data reduction and correct
 \emph on
 Miriad
 \emph default
- to search the data was a initially a monumental challenge since our archive
- search started with over 25 different sets of data of different celestial
- objects taken with different spectral configurations.
+ to search the data for Stokes 
+\begin_inset Formula $V$
+\end_inset
+
+ signals was initially a monumental challenge since our archive search started
+ with over 25 different sets of data of different celestial objects taken
+ with different spectral configurations.
  For example, an early step in the 
 \family typewriter
 invert
 \family default
--ing process is to average the spectral channels that make up a spectral
- line (like CO 
+-ing process is to average together the spectral channels that make up a
+ spectral line (e.g.
+ CO 
 \begin_inset Formula $(J=3\rightarrow2)$
 \end_inset
 
@@ -1568,7 +1653,7 @@ invert
  number of channels to cover the entire line, and then switching the x-axis
  of the displayed spectra to find the corresponding velocity of the starting
  channel.
- This is then passed to the 
+ These values are then passed to the 
 \family typewriter
 invert
 \family default
@@ -1720,7 +1805,14 @@ Having a Python interface to
 Miriad 
 \emph default
 also made it possible to connect the data to the plotting utilities available
- in Python, such as matplotlib, and also allowed easier access to 
+ in Python, such as matplotlib 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hunter2007"
+
+\end_inset
+
+, and also allowed easier access to 
 \emph on
 Miriad
 \emph default
@@ -1728,7 +1820,7 @@ Miriad
 \family typewriter
 cgdisp
 \family default
- which is used to display contour plots of the maps.
+ which is used to display contour plots of maps.
 \end_layout
 
 \begin_layout Standard
@@ -1811,10 +1903,22 @@ target "https://github.com/mef51/SMAData/tree/master/squintscripts"
 \family default
  folder which contains all the scripts for generating the figures included
  the paper as well as some extra figures.
- The paperplots.py file contains some utilities.
- The GetCOMaps.py file generates all the maps used in the paper.
- CompareImageSpectra.py generates the large before-and-after correction compariso
-n of the spectra (Figure 4 of the attached paper).
+ The 
+\family typewriter
+paperplots.py
+\family default
+ file contains some utilities for styling the figures.
+ The 
+\family typewriter
+GetCOMaps.py
+\family default
+ file generates all the maps used in the paper.
+ 
+\family typewriter
+CompareImageSpectra.py
+\family default
+ generates the before-and-after correction comparison of the spectra (Figure
+ 4 of the attached paper).
 \end_layout
 
 \begin_layout Standard
@@ -1865,8 +1969,8 @@ I'd like to thank my supervisor Martin Houde for his advice and guidance
 \begin_layout Standard
 I'm also grateful to Ramprasad Rao and Josep Miquel Girart who not only
  made my visit to Hilo productive but also warm and fun.
- Thank you Josep Miquel for not letting me drive up Mauna Kea on my own
- the night before our respective flights.
+ Thank you Josep Miquel and Miquel for accompanying me on my drive up Mauna
+ Kea the night before our respective flights.
  
 \end_layout
 
@@ -2155,6 +2259,19 @@ Hull, C.
  M., Crutcher, R.
  M., et al.
  2014, ApJ Suppl., 213, 13
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Hunter(2007)"
+key "Hunter2007"
+
+\end_inset
+
+Hunter, J.
+ D.
+ 2007, Computing in Science & Engineering, 9, 3, 90-95 
 \end_layout
 
 \begin_layout Bibliography
