@@ -1049,11 +1049,11 @@ To obtain maps at different frequencies the signal must be binned into different
  To obtain full polarimetric information for the visibilities from a single
  baseline, the two antenna must correlate their responses to every combination
  of polarization state.
- That is, if an antenna can sample polarization states '
+ That is, if an antenna can sample polarization states `
 \begin_inset Formula $L$
 \end_inset
 
-' and '
+' and `
 \begin_inset Formula $R$
 \end_inset
 
@@ -1109,7 +1109,15 @@ status open
 \begin_inset Graphics
 	filename SMA_QWP.png
 	lyxscale 50
-	height 25theight%
+	height 28theight%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mountedQWP.JPG
+	lyxscale 10
+	height 28theight%
 
 \end_inset
 
@@ -1126,6 +1134,12 @@ name "fig:qwp"
 
 \end_inset
 
+
+\series bold
+\emph on
+(left) 
+\series default
+\emph default
 The SMA's quarter-wave plate (QWP) mounted on a rotation stage.
  Optical brakes (top and bottom left) determine the position of the QWP.
  Adjustable flags (small screws on perimeter of the rotation stage) at 
@@ -1146,6 +1160,14 @@ key "Marrone2008"
 
 .
  
+\series bold
+\emph on
+(right)
+\emph default
+ 
+\series default
+The QWP mounted inside the cabin of an SMA antenna in the path of the beam
+ (personal photo).
 \end_layout
 
 \end_inset
@@ -1173,16 +1195,556 @@ The data reduction package
 \emph on
 Miriad 
 \emph default
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Sault1995"
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
 implements and performs most of the required computational tasks for calibrating
  the data and performing the inverse Fourier transform to obtain maps.
+ When observations are taken their brightness is usually calibrated against
+ measurements of quasars that are taken during the same night, since the
+ quasars used are assumed to be steady, bright, unchanging sources.
+ The data presented in this paper were already calibrated by Dr.
+ Rao and Dr.
+ Girart, and so the calibration process will not be explained in detail
+ here.
+ The calibration involves calculating gain coefficients to correctly scale
+ the visibilities to their true intensities.
+ In 
+\emph on
+Miriad
+\emph default
+,
+\emph on
+ 
+\emph default
+programs that perform useful operations on the data are broken up into commands
+ called 'tasks' that can be scripted using bash scripts or Python.
+ This section will summarize the most important tasks for creating images
+ from the visibilities.
 \end_layout
 
 \begin_layout Standard
-* invert, clean, selfcal (what's the math?)
+The 
+\family typewriter
+invert
+\family default
+ task performs a standard two-dimensional fast Fourier transform (FFT) on
+ a grid whose size can be specified by the user.
+ It also generates a beam map that gives the response of the inteferometer
+ to a point source based on the location of the antennae in the array and
+ the frequency being observed.
+ The beam map is necessary because 
+\family typewriter
+invert
+\family default
+ alone tends to produce maps of objects that are filled with sidelobes:
+ bumps and peaks and stripes that arise in the map when the 
+\begin_inset Formula $uv$
+\end_inset
+
+-coverage of the array is irregular.
+ In inteferometry the 
+\begin_inset Formula $uv$
+\end_inset
+
+-coverage is often irregular due to the fact that the placement of dishes
+ is limited to the geography of the region (like on Mauna Kea for the SMA)
+ and specific dishes often need to be excluded from the data due to malfunction.
+ The beam map, because it is made with observations of a point source, can
+ tell us what exactly the pattern of sidelobes is and makes it possible
+ to deconvolve the sidelobe pattern from the dirty map, leaving behind the
+ real structure.
+ The process for doing this is called Högbom iteration 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Högbom1974"
+
+\end_inset
+
+ or `CLEAN' and is implemented by the 
+\family typewriter
+clean
+\family default
+ task in 
+\emph on
+Miriad.
+ 
 \end_layout
 
 \begin_layout Standard
-* my sexy python wrapper (what's the code look like?)
+The 
+\family typewriter
+clean
+\family default
+'ing of the dirty map is perfomed by subtracting the entire dirty beam from
+ the position where the dirty map is maximum.
+ The amplitude of the dirty beam is usually normalized to be a fraction
+ of the maximum of the dirty map, called the loop gain.
+ This subtraction is repeated on what remains of the map until nothing is
+ left.
+ A model is then built by placing point sources at all the positions where
+ a peak was removed at the corresponding amplitude that it was removed at.
+ By then analytically calculating a 
+\begin_inset Quotes eld
+\end_inset
+
+clean
+\begin_inset Quotes erd
+\end_inset
+
+ beam, which is the response to a point source given the diameter of a dish,
+ the model can be convolved with the clean beam using the 
+\family typewriter
+restor 
+\family default
+task to obtain a clean map.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:cleandemo"
+
+\end_inset
+
+ demonstrates the 
+\family typewriter
+clean
+\family default
+-ing process on the IRC+10216 data presented in the attached paper.
+ Note that the CLEAN algorithm works on extended sources like nebulae or
+ molecular clouds essentially by modelling them as a collection of point
+ sources.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename irc+10216.co3-2.demo.mp.ps
+	lyxscale 60
+	width 50text%
+	rotateAngle 270
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename irc+10216.co3-2.demo.bm.ps
+	lyxscale 60
+	width 50text%
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename irc+10216.co3-2.demo.cc.ps
+	lyxscale 60
+	width 50text%
+	rotateAngle 270
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename irc+10216.co3-2.demo.cm.ps
+	lyxscale 60
+	width 50text%
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cleandemo"
+
+\end_inset
+
+The dirty map 
+\series bold
+\emph on
+(top left)
+\series default
+\emph default
+, dirty beam 
+\series bold
+\emph on
+(top right)
+\series default
+,
+\emph default
+ model obtained from the 
+\family typewriter
+clean
+\family default
+ task
+\series bold
+\emph on
+ (bottom left)
+\series default
+\emph default
+, and deconvolved CLEAN map of IRC+10216 
+\series bold
+\emph on
+(bottom right)
+\series default
+\emph default
+.
+ Contour levels are at -20%, 20%, 30%, 40%, etc.
+ of the maximum.
+ Pixels show the same data, darker pixels represent higher intensity.
+ Notice the six peaks around the larger central peak in the dirty map are
+ also present in the dirty beam and are largely absent in the clean map.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+* selfcal –> used to adjust the gain coefficients by doing jacobi iteration
+ (maybe leave this out?), equation from paper
+\end_layout
+
+\begin_layout Standard
+Another task critical to the results presented in the paper is 
+\family typewriter
+selfcal
+\family default
+ (self-calibration),
+\family typewriter
+ 
+\family default
+which makes additional corrections to the gain calibration of the data.
+ As explained in the paper this is necessary to correct the very small offset
+ between beams of different polarizations that leads to false Stokes 
+\begin_inset Formula $V$
+\end_inset
+
+ signals.
+ The 
+\family typewriter
+selfcal 
+\family default
+task takes the clean model found from 
+\family typewriter
+invert
+\family default
+-ing and 
+\family typewriter
+clean
+\family default
+-ing the initial visibities and uses it to find new gain coefficients that
+ better fit the model.
+ The gain coefficients can be further improved by repeating the self-calibration
+ process on a new model generated from the last gain coefficients to be
+ found.
+ The gain coefficients (which are complex-valued) are searched for and found
+ iteratively by minimizing the following error heuristic:
+\begin_inset Formula 
+\begin{equation}
+\epsilon^{2}=\Sigma|\mathcal{V}_{ij}-g_{i}g_{j}^{*}\hat{\mathcal{V}}_{ij}|^{2},\label{eq:selfcal}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{V}_{ij}$
+\end_inset
+
+ are the measured visibities found by correlating signals from antenna 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\mathcal{V}}_{ij}$
+\end_inset
+
+ are the model visibities for the same baseline, and 
+\begin_inset Formula $g_{x}$
+\end_inset
+
+ are the complex gain coefficients.
+ By finding the gain coefficients that minimze eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:selfcal"
+
+\end_inset
+
+), 
+\family typewriter
+selfcal
+\family default
+ adjusts the measured visibities until they match the model, and, when models
+ are regenerated after each iteration of 
+\family typewriter
+selfcal
+\family default
+, the gain coefficients eventually converge and further iterations do not
+ improve the image 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Schwab1980,Sault2008"
+
+\end_inset
+
+.
+ The self-calibration process can also be applied on visibities with different
+ polarizations, which is what allows us to correct the offset in each polarized
+ beam.
+ 
+\end_layout
+
+\begin_layout Standard
+While 
+\emph on
+Miriad'
+\emph default
+s tasks make it easy to create scripts to automate data reduction and correct
+ the data, the tasks themselves take parameters that must be manually found
+ based on the data set being used, and are usually different across different
+ objects.
+ Using 
+\emph on
+Miriad
+\emph default
+ to search the data was a initially a monumental challenge since our archive
+ search started with over 25 different sets of data of different celestial
+ objects taken with different spectral configurations.
+ For example, an early step in the 
+\family typewriter
+invert
+\family default
+-ing process is to average the spectral channels that make up a spectral
+ line (like CO 
+\begin_inset Formula $(J=3\rightarrow2)$
+\end_inset
+
+ at 345.8GHz) so that the inversion process completes successfully.
+ This is done by specifying the number of channels to end with after averaging,
+ the velocity (in km/s) of the channel to start averaging at, and the number
+ of channels to merge together.
+ This involved manually opening the spectra of interest, counting the correct
+ number of channels to cover the entire line, and then switching the x-axis
+ of the displayed spectra to find the corresponding velocity of the starting
+ channel.
+ This is then passed to the 
+\family typewriter
+invert
+\family default
+ task like so: 
+\begin_inset listings
+lstparams "language=bash,numbers=left,basicstyle={\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+invert line=vel,18,-43,2,2 vis=[...]
+\end_layout
+
+\end_inset
+
+where the format is 
+\family typewriter
+line=vel,{# of channels},{starting channel},{step},{# to merge}.
+
+\family default
+ The 
+\family typewriter
+invert
+\family default
+ task has a bug where if the step size does not agree with a hidden rule
+ I was unable to ascertain, it would fail, requiring you to increase the
+ step size and manually recount the number of channels to input as the first
+ number.
+ Since each dataset required a correction script to be written for it, and
+ we wanted to search as much data as possible, inefficiencies like the example
+ above quickly made progress difficult and cumbersome.
+ 
+\end_layout
+
+\begin_layout Standard
+To improve the workflow and automate little menial details like counting
+ it was necessary to automate parameter generation for 
+\emph on
+Miriad
+\emph default
+'s tasks.
+ In a language like bash, which 
+\emph on
+Miriad
+\emph default
+ supported scripting for natively, such automation would bring its own cumbersom
+e details, and it became clear a language like Python would be better suited
+ for the task.
+ No Python wrapper existed for 
+\emph on
+Miriad 
+\emph default
+so I created one and used it to generate any tedious parameters needed for
+ any of the 
+\emph on
+Miriad 
+\emph default
+tasks, including detecting when 
+\family typewriter
+invert
+\family default
+ fails due to the mysterious step bug and automatically changing the step
+ size until the task completes.
+ Other notable features include dumping spectral information to the terminal
+ and parsing it in Python for information needed to generate other parameters,
+ counting channels automatically, displaying a window with a spectrum that
+ outputs channel information on mouse click, and, in general, allowing one
+ to take advantage of the language features of Python such as loop structures,
+ function definitions, and string substitution.
+ For example, the Python method used to automate the line selection parameter
+ for 
+\family typewriter
+invert
+\family default
+ is the following: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,basicstyle={\ttfamily},showstringspaces=false,tabsize=4,lineskip={-1.5pt},keywordstyle={\color{blue}}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+def averageVelocityLine(vis, factor):	
+\end_layout
+
+\begin_layout Plain Layout
+
+	velrange = getVelocityRange(vis)
+\end_layout
+
+\begin_layout Plain Layout
+
+	nvels = round(abs(velrange[0] - velrange[1])/factor)
+\end_layout
+
+\begin_layout Plain Layout
+
+	startvel = round(velrange[1])
+\end_layout
+
+\begin_layout Plain Layout
+
+	return `vel,{0},{1},{2},{2}'.format(nvels, startvel, factor)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which, under the hood, gets the velocity range of the line by using the
+ output of the 
+\family typewriter
+uvlist
+\family default
+ task in 
+\emph on
+Miriad 
+\emph default
+and parsing it for the velocity range before using it to compute the necessary
+ number of channels and building the necessary string in the format that
+ 
+\emph on
+Miriad 
+\emph default
+expects.
+\end_layout
+
+\begin_layout Standard
+The Python 
+\emph on
+Miriad 
+\emph default
+wrapper works by generating the necessary bash command to run and then passing
+ the command to the terminal.
+ Depending on the task, the output can be displayed in the terminal as usual
+ or can be intercepted by Python and used for other tasks.
+ 
+\end_layout
+
+\begin_layout Standard
+Having a Python interface to 
+\emph on
+Miriad 
+\emph default
+also made it possible to connect the data to the plotting utilities available
+ in Python, such as matplotlib, and also allowed easier access to 
+\emph on
+Miriad
+\emph default
+'s own plotting utilities like 
+\family typewriter
+cgdisp
+\family default
+ which is used to display contour plots of the maps.
+\end_layout
+
+\begin_layout Standard
+Creating an automation suite for 
+\emph on
+Miriad
+\emph default
+ in Python and connecting it directly to several different custom plotting
+ methods made it possible to correct more data, find potential Stokes 
+\begin_inset Formula $V$
+\end_inset
+
+ signals across different spectral lines more efficiently, and create the
+ many figures and maps required to convince ourselves of whether the signals
+ were real or not.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1190,19 +1752,127 @@ Code Repositories
 \end_layout
 
 \begin_layout Standard
-* data repo (SMAData)
+All the code that performs the data reduction, squint correction, and plotting
+ is available online.
 \end_layout
 
 \begin_layout Standard
-* plot code (squintscripts)
+The data analysis and correction scripts can be found at 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+name "github.com/mef51/SMAData"
+target "https://github.com/mef51/SMAData"
+
+\end_inset
+
+
+\family default
+.
+ This repository contains all the archival polarimetric data from the SMA
+ (minus the actual data, scripts only).
+ The folders relevant to the attached paper are 
+\family typewriter
+IRC+10216/
+\family default
+, 
+\family typewriter
+080106_Ram_Spectra/
+\family default
+ (for Orion KL), 
+\family typewriter
+141028_ngc7538/
+\family default
+ (for NGC7538), and 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+101014_NGC1333_Ram/
+\family default
+ (for NGC1333).
+ 
 \end_layout
 
 \begin_layout Standard
-* squint code and Miriad wrapper (smautils)
+Within that repository is the 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+name "squintscripts/"
+target "https://github.com/mef51/SMAData/tree/master/squintscripts"
+
+\end_inset
+
+
+\family default
+ folder which contains all the scripts for generating the figures included
+ the paper as well as some extra figures.
+ The paperplots.py file contains some utilities.
+ The GetCOMaps.py file generates all the maps used in the paper.
+ CompareImageSpectra.py generates the large before-and-after correction compariso
+n of the spectra (Figure 4 of the attached paper).
+\end_layout
+
+\begin_layout Standard
+The Python wrapper for 
+\emph on
+Miriad 
+\emph default
+described in the previous section lives in its own repository due to its
+ potential use for others and can be found at 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+name "github.com/mef51/smautils"
+target "https://github.com/mef51/smautils"
+
+\end_inset
+
+
+\family default
+.
+ It contains the wrapper as well as a library (
+\family typewriter
+squint.py
+\family default
+) for performing the squint correction detailed in the paper.
+ It is published on the Python Package Index (PyPi) and can be installed
+ by anyone by running the command `
+\family typewriter
+pip install smautils
+\family default
+' on the terminal.
 \end_layout
 
 \begin_layout Section
 Acknowledgements
+\end_layout
+
+\begin_layout Standard
+I'd like to thank my supervisor Martin Houde for his advice and guidance
+ during the last year and for sending me to Hilo, Hawaii for two weeks as
+ soon as I finished my classes despite my having only a vague idea of what
+ my project would entail and exactly zero research experience in Astronomy.
+ Baptism by fire works.
+ 
+\end_layout
+
+\begin_layout Standard
+I'm also grateful to Ramprasad Rao and Josep Miquel Girart who not only
+ made my visit to Hilo productive but also warm and fun.
+ Thank you Josep Miquel for not letting me drive up Mauna Kea on my own
+ the night before our respective flights.
+ 
+\end_layout
+
+\begin_layout Standard
+I'm grateful to my friends, roommates, and the rock climbing crew for giving
+ me things to do that are happily unrelated to work.
 \end_layout
 
 \begin_layout Bibliography
@@ -1415,6 +2085,21 @@ Hildebrand, R.
  L., Houde, M., Vaillancourt, J.
  E.
  2009 ApJ, 696, 567-573
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Högbom(1974)"
+key "Högbom1974"
+
+\end_inset
+
+Högbom, J.
+ A.
+ 1974 Astron.
+ Astrophys.
+ Suppl., 15, 417-426
 \end_layout
 
 \begin_layout Bibliography
