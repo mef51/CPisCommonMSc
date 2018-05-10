@@ -288,7 +288,7 @@ Introduction
 Stars form when clouds of gas and dust collapse gravitationally until they
  are hot enough to ignite fusion in their core.
  Assuming that gravity is the dominant force in the star formation process
- one can calculate several parameters such as the maximum mass stable to
+ one can calculate several parameters such as the maximum mass stable against
  gravitational collapse (the Jeans mass), and the free-fall timescale for
  such a collapse.
  However, the presence of turbulence and magnetic fields in a molecular
@@ -995,8 +995,8 @@ reference "eq:ft"
 
 .
  The intensity map is therefore obtained by performing an inverse 2D Fourier
- transform on the visibities which is of course limited by how well the
- visibities have been measured.
+ transform on the visibilities which is of course limited by how well the
+ visibilities have been measured.
  A single pair of antennae samples a single 
 \begin_inset Formula $(u,v)$
 \end_inset
@@ -1024,7 +1024,7 @@ key "Thompson2001"
 \end_inset
 
 .
- Images formed from poorly sampled visibities will result in a large number
+ Images formed from poorly sampled visibilities will result in a large number
  of periodic `blobs' or `stripes' that are not real and are purely a side-effect
  of the periodic functions used to perform the Fourier transform.
  
@@ -1534,8 +1534,8 @@ invert
 \family typewriter
 clean
 \family default
--ing the initial visibities and uses it to find new gain coefficients that
- better fit the model.
+-ing the initial visibilities and uses it to find new gain coefficients
+ that better fit the model.
  The gain coefficients can be further improved by repeating the self-calibration
  process on a new model generated from the last gain coefficients to be
  found 
@@ -1559,7 +1559,8 @@ where
 \begin_inset Formula $\mathcal{V}_{ij}$
 \end_inset
 
- are the measured visibities found by correlating signals from antenna 
+ are the measured visibilities found by correlating signals from antenna
+ 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1571,7 +1572,7 @@ where
 \begin_inset Formula $\hat{\mathcal{V}}_{ij}$
 \end_inset
 
- are the model visibities for the same baseline, and 
+ are the model visibilities for the same baseline, and 
 \begin_inset Formula $g_{x}$
 \end_inset
 
@@ -1595,8 +1596,8 @@ reference "eq:selfcal"
 \family typewriter
 selfcal
 \family default
- adjusts the measured visibities until they match the model, and, when models
- are regenerated after each iteration of 
+ adjusts the measured visibilities until they match the model, and, when
+ models are regenerated after each iteration of 
 \family typewriter
 selfcal
 \family default
@@ -1609,7 +1610,7 @@ key "Schwab1980,Sault2008"
 \end_inset
 
 .
- The self-calibration process can also be applied on visibities with different
+ The self-calibration process can also be applied on visibilities with different
  polarizations, which is what allows us to correct the offset in each polarized
  beam.
  
