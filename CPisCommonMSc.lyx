@@ -295,7 +295,8 @@ Stars form when clouds of gas and dust collapse gravitationally until they
  cloud complicates star formation, either by slowing down the collapse or
  preventing it from happening at all.
  Developing methods of measuring and characterizing turbulence and magnetic
- fields in molecular clouds is an important research focus in star formation.
+ fields in molecular clouds is therefore an important research focus in
+ star formation.
  This report focuses on polarimetry, the dominant method for measuring the
  magnetic field.
 \end_layout
@@ -324,9 +325,12 @@ key "Nakano1978,Crutcher2012"
 \end_inset
 
 .
- Clouds with masses below this mass are called subcritical and are supported
- against collapse by the magnetic field, while clouds with a mass higher
- than 
+ Clouds with masses below 
+\begin_inset Formula $M_{\Phi}$
+\end_inset
+
+ are called subcritical and are supported against collapse by the magnetic
+ field, while clouds with a mass higher than 
 \begin_inset Formula $M_{\Phi}$
 \end_inset
 
@@ -389,8 +393,7 @@ pinch
 \begin_inset Quotes erd
 \end_inset
 
- as the cloud collapses, creating a very beautiful hourglass morphology
- 
+ as the cloud collapses, creating a beautiful hourglass morphology 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -437,15 +440,17 @@ name "fig:NGC1333"
 \end_inset
 
 A map of NGC1333 IRAS4A made with the Submillimeter Array (SMA).
- Colours and contours show continuum dust emission, red vectors show the
- magnetic field in the plane of the sky 
+ Colours and contours show levels of continuum dust emission (red pixels
+ show higher intensity).
+ The red vectors show the direction of the magnetic field in the plane of
+ the sky 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Girart2006"
 
 \end_inset
 
-
+.
 \end_layout
 
 \end_inset
@@ -463,7 +468,7 @@ key "Girart2006"
 \end_layout
 
 \begin_layout Standard
-Understanding the details of the star formation process are a strong reason
+Understanding the details of star formation processes are a strong motivation
  for developing the methodology of measuring magnetic fields around star
  forming regions and the interstellar medium.
  In astronomy, new tools for observing the universe frequently reveal surprising
@@ -485,15 +490,15 @@ reference "fig:NGC1333"
  are made by measuring the polarization state of the light incident on a
  telescope.
  Inferring the magnetic field from the measured polarization state is usually
- done either through broadband measurements of continuum thermal emission
- from dust or using rotational transitions of molecules, like CO.
+ done either through broadband measurements of continuum thermal dust emission
+ or using rotational transitions of molecules, like CO.
  Measuring molecular transitions has the advantage of higher intensities
  compared to measuring thermal dust emission.
  In addition, by selecting different molecules we can obtain tomographic
  information and more detail about the structure of the cloud.
  This section will give a brief overview of the two methods and gives context
  to certain challenges with polarimetry on molecular spectral lines that
- the work presented here highlights.
+ this work highlights.
 \end_layout
 
 \begin_layout Standard
