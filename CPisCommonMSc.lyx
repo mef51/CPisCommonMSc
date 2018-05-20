@@ -504,14 +504,25 @@ reference "fig:NGC1333"
 \begin_layout Standard
 The mechanisms that give rise to polarized light from dust versus from molecules
  are, though different, both related to the strength of the magnetic field
- in the environment.
- Dust grains will align themselves perpendicular to the magnetic field due
- to asymmetric radiative torques, causing any thermal emission from long
- grains to be linearly polarized perpendicular to the field (source?).
- Molecules interact with the magnetic field and through the Goldreich-Kylafis
- (GK) effect can emit a small percentage of radiation that is linearly polarized
- either perpendicular or parallel to the plane of the sky component of the
- magnetic field 
+ in the local environment.
+ Dust grains align themselves perpendicular to the magnetic field due to
+ asymmetric radiative torques, causing any thermal emission from long grains
+ to be linearly polarized perpendicular to the field (source?).
+ If a molecule in a magnetic field experiences even a small Zeeman splitting
+ of its transitions, a population imbalance of one linear polarization over
+ the other due to pumping by anisotropic raditaion can cause an observable
+ net polarization 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Goldreich1981,Crutcher2012"
+
+\end_inset
+
+.
+ This is referred to as the Goldreich-Kylafis (GK) effect and results in
+ molecules to emitting a small percentage of radiation that is linearly
+ polarized either perpendicular or parallel to the plane of the sky component
+ of the magnetic field 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Goldreich1981"
@@ -520,7 +531,14 @@ key "Goldreich1981"
 
 .
  The degeneracy in the direction of the magnetic field is usually resolved
- by measuring continnuum emission along with molecular emission.
+ by measuring continnuum emission along with molecular emission 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -561,8 +579,15 @@ key "Davis1951,Chandrasekhar1953,Crutcher2012"
 \end_inset
 
 .
- This method has proven useful and has seen several extensions and refinements
- in recent years 
+ This method has proven useful in estimating the magnetic field in molecular
+ clouds and in the galactic plane 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Chandrasekhar1953,Crutcher2012"
+
+\end_inset
+
+ and has seen several extensions and refinements in recent years 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Hildebrand2009,Houde2009"
@@ -581,7 +606,7 @@ Since the PA is the critical piece of information that connects polarization
  of polarized light due to the telescope's instrumentation 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g. see"
+before "e.g.:"
 key "Hamaker1996,Sault1996,Marrone2008"
 
 \end_inset
@@ -603,9 +628,9 @@ key "Hezareh2013"
 
 \end_inset
 
-, and the ARS effect is a common occurence in molecular clouds (this work),
- measuring CP simultaneously with LP when doing molecular spectral line
- polarimetry may be essential to obtaining accurate measurements of the
+, and the ARS effect may be a common occurence in molecular clouds (this
+ work), measuring CP simultaneously with LP when doing molecular spectral
+ line polarimetry is essential to obtaining accurate measurements of the
  magnetic field.
  
 \end_layout
@@ -650,6 +675,10 @@ Since the resolution of a telescope goes as
 \end_inset
 
 , where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the wavelength and 
 \begin_inset Formula $D$
 \end_inset
 
@@ -704,7 +733,7 @@ patchy
  reflector.
  However while the resolution defines the scale of the smallest object that
  is resolvable an interferometer also has a limit on the largest resolvable
- object, which is defined by the shortest baseline 
+ scale, which is defined by the shortest baseline 
 \begin_inset Formula $B_{min}$
 \end_inset
 
@@ -729,15 +758,7 @@ The output of a radio interferometer is the visibility function
 \begin_inset Formula $v$
 \end_inset
 
- are the distances between the two antennae 
-\begin_inset Formula $\Delta x$
-\end_inset
-
- and 
-\begin_inset Formula $\Delta y$
-\end_inset
-
-, respectively.
+ are related to the distances between the two antennae.
  Given antennae 
 \begin_inset Formula $a$
 \end_inset
@@ -1042,7 +1063,7 @@ To obtain maps at different frequencies the signal must be binned into different
  either receivers sensitive to different polarizations must be used (like
  at ALMA) or the observing time is split so that the receivers are exposed
  to light of different polarization states.
- The SMA does the latter strategy and uses a quarter-wave plate (QWP) in
+ The SMA uses the latter strategy and uses a quarter-wave plate (QWP) in
  the beam of each antenna to sample the two polarization states: left-CP
  (LCP) and right-CP (RCP).
  Each antenna can only sample one polarization state at a time, and the
@@ -1052,7 +1073,7 @@ To obtain maps at different frequencies the signal must be binned into different
 
  to sample the other state.
  To obtain full polarimetric information for the visibilities from a single
- baseline, the two antenna must correlate their responses to every combination
+ baseline, the two antennae must correlate their responses to every combination
  of polarization state 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1239,7 +1260,7 @@ Miriad
  
 \emph default
 programs that perform useful operations on the data are broken up into commands
- called 'tasks' that can be scripted using bash scripts or Python.
+ called `tasks' which can be scripted using bash scripts or Python.
  This section will summarize the most important tasks for creating images
  from the visibilities.
 \end_layout
@@ -1266,11 +1287,19 @@ key "Sault2008"
 invert
 \family default
  alone tends to produce maps of objects that are filled with sidelobes:
- bumps and peaks and stripes that arise in the map when the 
+ bumps, peaks, and stripes that arise in the map when the 
 \begin_inset Formula $uv$
 \end_inset
 
--coverage of the array is irregular 
+-coverage of the array is irregular, called the 
+\begin_inset Quotes eld
+\end_inset
+
+dirty
+\begin_inset Quotes erd
+\end_inset
+
+ map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Högbom1974,Thompson2001,Sault2008"
@@ -1283,7 +1312,7 @@ key "Högbom1974,Thompson2001,Sault2008"
 \end_inset
 
 -coverage is often irregular due to the fact that the placement of dishes
- is limited to the geography of the region (like on Mauna Kea for the SMA)
+ is limited to the geography of the region (as on Mauna Kea for the SMA)
  and specific dishes often need to be excluded from the data due to malfunction
  
 \begin_inset CommandInset citation
@@ -1294,10 +1323,9 @@ key "Högbom1974"
 
 .
  The beam map, because it is made with observations of a point source, can
- tell us what exactly the pattern of sidelobes is and makes it possible
- to deconvolve the sidelobe pattern from the dirty map, leaving behind the
- real structure.
- The process for doing this is called Högbom iteration 
+ tell us what the pattern of sidelobes is and makes it possible to deconvolve
+ the sidelobe pattern from the dirty map, leaving behind the real structure.
+ This process is called Högbom iteration 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Högbom1974"
@@ -1330,7 +1358,7 @@ The
 \family typewriter
 clean
 \family default
-'ing of the dirty map is perfomed by subtracting the entire dirty beam from
+-ing of the dirty map is perfomed by subtracting the entire dirty beam from
  the position where the dirty map is maximum.
  The amplitude of the dirty beam is usually normalized to be a fraction
  of the maximum of the dirty map, called the loop gain 
@@ -1379,8 +1407,7 @@ clean
 \family default
 -ing process on the IRC+10216 data presented in the attached paper.
  Note that the CLEAN algorithm works on extended sources like nebulae or
- molecular clouds essentially by modelling them as a collection of point
- sources 
+ molecular clouds by modelling them as a collection of point sources 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Högbom1974"
@@ -1521,8 +1548,9 @@ key "Sault2008"
 \end_inset
 
 .
- As explained in the paper this is necessary to correct the very small offset
- between beams of different polarizations that leads to false Stokes 
+ As explained in the paper, this is necessary to correct the very small
+ offset between beams of different polarizations that leads to false Stokes
+ 
 \begin_inset Formula $V$
 \end_inset
 
@@ -1555,26 +1583,26 @@ key "Sault2008"
  iteratively by minimizing the following error heuristic:
 \begin_inset Formula 
 \begin{equation}
-\epsilon^{2}=\Sigma|\mathcal{V}_{ij}-g_{i}g_{j}^{*}\hat{\mathcal{V}}_{ij}|^{2},\label{eq:selfcal}
+\epsilon^{2}=\Sigma|\mathcal{V}_{ab}-g_{a}g_{b}^{*}\hat{\mathcal{V}}_{ab}|^{2},\label{eq:selfcal}
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\mathcal{V}_{ij}$
+\begin_inset Formula $\mathcal{V}_{ab}$
 \end_inset
 
  are the measured visibilities found by correlating signals from antenna
  
-\begin_inset Formula $i$
+\begin_inset Formula $a$
 \end_inset
 
  and 
-\begin_inset Formula $j$
+\begin_inset Formula $b$
 \end_inset
 
 , 
-\begin_inset Formula $\hat{\mathcal{V}}_{ij}$
+\begin_inset Formula $\hat{\mathcal{V}}_{ab}$
 \end_inset
 
  are the model visibilities for the same baseline, and 
@@ -1628,7 +1656,7 @@ Miriad'
 \emph default
 s tasks make it easy to create scripts to automate data reduction and correct
  the data, the tasks themselves take parameters that must be manually found
- based on the data set being used, and are usually different across different
+ based on the data set being used, and are usually different for different
  objects.
  Using 
 \emph on
@@ -1645,8 +1673,8 @@ Miriad
 \family typewriter
 invert
 \family default
--ing process is to average together the spectral channels that make up a
- spectral line (e.g.
+-ing process is to average the spectral channels that make up a spectral
+ line (e.g.
  CO 
 \begin_inset Formula $(J=3\rightarrow2)$
 \end_inset
@@ -1771,10 +1799,6 @@ def averageVelocityLine(vis, factor):
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 which, under the hood, gets the velocity range of the line by using the
  output of the 
 \family typewriter
@@ -1850,8 +1874,8 @@ Code Repositories
 \end_layout
 
 \begin_layout Standard
-All the code that performs the data reduction, squint correction, and plotting
- is available online.
+All of the code that performs the data reduction, squint correction, and
+ plotting is available online.
 \end_layout
 
 \begin_layout Standard
@@ -1869,8 +1893,8 @@ target "https://github.com/mef51/SMAData"
 \family default
 .
  This repository contains all the archival polarimetric data from the SMA
- (minus the actual data, scripts only).
- The folders relevant to the attached paper are 
+ (analysis scripts only).
+ The folders relevant to this paper are 
 \family typewriter
 IRC+10216/
 \family default
@@ -1932,8 +1956,8 @@ The Python wrapper for
 \emph on
 Miriad 
 \emph default
-described in the previous section lives in its own repository due to its
- potential use for others and can be found at 
+described in the previous section is provided in a separate repository due
+ to its potential use for others and can be found at 
 \family typewriter
 
 \begin_inset CommandInset href
