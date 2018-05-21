@@ -212,8 +212,8 @@ Co-Authorship
 \begin_layout Standard
 The archival data that forms the basis of this work was reduced and provided
  by Dr.
- Ramprasad Rao, receiver engineer at the Submillimeter Array (SMA) on Mauna
- Kea.
+ Ramprasad Rao, receiver support engineer at the Submillimeter Array (SMA)
+ on Mauna Kea.
  The idea for and first version of the code that performs the correction
  necessary to eliminate false signals was provided by Dr.
  Josep Miquel Girart, who was visiting the SMA at the same time as I was.
@@ -288,12 +288,51 @@ Introduction
 Stars form when clouds of gas and dust collapse gravitationally until they
  are hot enough to ignite fusion in their core.
  Assuming that gravity is the dominant force in the star formation process
- one can calculate several parameters such as the maximum mass stable against
- gravitational collapse (the Jeans mass), and the free-fall timescale for
- such a collapse.
- However, the presence of turbulence and magnetic fields in a molecular
- cloud complicates star formation, either by slowing down the collapse or
- preventing it from happening at all.
+ one can calculate several parameters of a molecular such as the maximum
+ mass stable against gravitational collapse (the Jeans mass), given by
+\begin_inset Formula 
+\begin{equation}
+M_{J}\simeq\Big(\frac{5kT}{G\mu m_{H}}\Big)^{3/2}\Big(\frac{3}{4\pi\rho_{0}}\Big)^{1/2},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $T$
+\end_inset
+
+ is the temperature of the cloud, and 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ is its initial density.
+ We can also find the free-fall timescale for such a collapse, given by
+\begin_inset Formula 
+\begin{equation}
+t_{ff}=\Big(\frac{3\pi}{32G\rho_{0}}\Big)^{1/2},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ is again the initial density of the cloud 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Carroll2006"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+However, the presence of turbulence and magnetic fields in a molecular cloud
+ complicates star formation, either by slowing down the collapse or preventing
+ it from happening at all.
  Developing methods of measuring and characterizing turbulence and magnetic
  fields in molecular clouds is therefore an important research focus in
  star formation.
@@ -305,7 +344,8 @@ Stars form when clouds of gas and dust collapse gravitationally until they
 The magnetic field in a molecular cloud can provide support against gravitationa
 l collapse and the strength of the field can determine the timescale at
  which collapse happens.
- The critical mass of a cloud is given by
+ The critical mass of a cloud with a magnetic field and ignoring turbulence
+ is given by
 \begin_inset Formula 
 \begin{equation}
 M_{\Phi}=\frac{\Phi}{2\pi\sqrt{G}},
@@ -393,7 +433,7 @@ pinch
 \begin_inset Quotes erd
 \end_inset
 
- as the cloud collapses, creating a beautiful hourglass morphology 
+ as the cloud collapses, creating an hourglass morphology 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -468,11 +508,175 @@ key "Girart2006"
 \end_layout
 
 \begin_layout Standard
-Understanding the details of star formation processes are a strong motivation
- for developing the methodology of measuring magnetic fields around star
- forming regions and the interstellar medium.
+Understanding the details of the star formation process is a driving force
+ for developing the methodology of measuring magnetic fields around star-forming
+ regions and the interstellar medium.
  In astronomy, new tools for observing the universe frequently reveal surprising
  results and open doors into future fields, and this methodology is no exception.
+\end_layout
+
+\begin_layout Subsection
+Magnetic Fields through the Zeeman Effect
+\end_layout
+
+\begin_layout Standard
+The Zeeman effect makes it possible under certian conditions to directly
+ measure the magnetic field along the line of sight in a molecular cloud
+ and also has a unique polarization signature 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The Zeeman effect refers to how the presence of a magnetic field can cause
+ the spectral line of a molecule to split into several components, where
+ the size of the split is proportional to the strength of the magnetic field
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zeeman1897"
+
+\end_inset
+
+.
+ For this effect to be used to measure the interstellar magnetic field the
+ presence of Zeeman-sensitive molecules is necessary.
+ The size of the split 
+\begin_inset Formula $\Delta\nu_{Z}$
+\end_inset
+
+ in the spectral line is given by 
+\begin_inset Formula 
+\begin{equation}
+\Delta\nu_{Z}=Z|B|,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $B$
+\end_inset
+
+ is the magnetic field, and 
+\begin_inset Formula $Z$
+\end_inset
+
+ is called the Zeeman factor and depends on the molecule and transition
+ in question 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ The Zeeman effect has only been detected in the interstellar medium in
+ the lines of HI, OH, and CN, since most other common species have very
+ small 
+\begin_inset Formula $Z$
+\end_inset
+
+ factors 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+When a spectral line splits it splits into three components that each have
+ a different polarization signature.
+ The central component is called the 
+\begin_inset Formula $\pi$
+\end_inset
+
+-component, which is unshifted in frequency, and is linearly polarized parallel
+ to the component of 
+\begin_inset Formula $B$
+\end_inset
+
+ along the plane of the sky.
+ The other two components are the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-lines which are on either side of the central 
+\begin_inset Formula $\pi$
+\end_inset
+
+-component and are oppositely circularly polarized, the amount by which
+ is determined by the strength of the magnetic field along the line-of-sight,
+ or 
+\begin_inset Formula $B_{LOS}$
+\end_inset
+
+.
+ In principle by measuring the size of the split and the full polarization
+ state of the three components one can obtain full information about 
+\begin_inset Formula $B$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ However, except for in OH masers, the Zeeman split is usually smaller than
+ the linewidth of the spectral line, which limits the amount of information
+ that can be obtained to 
+\begin_inset Formula $B_{LOS}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ In addition, for molecules with small 
+\begin_inset Formula $Z$
+\end_inset
+
+ factors, no net circular polarization is expected from the Zeeman effect
+ since the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-components, which are equal in strength and opposite in polarization, overlap
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Crutcher2012"
+
+\end_inset
+
+.
+ For this reason the discovery of circular polarization in the Zeeman-insensitiv
+e molecule CO was surprising and required a different mechanism to explain
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Houde2013,Houde2014"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -489,29 +693,38 @@ reference "fig:NGC1333"
 
  are made by measuring the polarization state of the light incident on a
  telescope.
- Inferring the magnetic field from the measured polarization state is usually
- done either through broadband measurements of continuum thermal dust emission
- or using rotational transitions of molecules, like CO.
- Measuring molecular transitions has the advantage of higher intensities
- compared to measuring thermal dust emission.
- In addition, by selecting different molecules we can obtain tomographic
- information and more detail about the structure of the cloud.
- This section will give a brief overview of the two methods and gives context
- to certain challenges with polarimetry on molecular spectral lines that
- this work highlights.
+ At millimetre and submillimetre wavelengths, inferring the magnetic field
+ from the measured polarization state is usually done either through broadband
+ measurements of continuum thermal dust emission or using rotational transitions
+ of molecules, like CO.
+ Measuring molecular transitions has the advantage of brighter intensities
+ compared to measuring thermal dust emission .
+ In addition, by selecting different molecules we can obtain information
+ on gas dynamics and detail about the structure of the cloud.
+ This section will give a brief overview of the two methods and will give
+ context to certain challenges with polarimetry of molecular spectral lines
+ that the work presented here highlights.
 \end_layout
 
 \begin_layout Standard
 The mechanisms that give rise to polarized light from dust versus from molecules
- are, though different, both related to the strength of the magnetic field
+ are, though different, both related to the presence of a magnetic field
  in the local environment.
- Dust grains align themselves perpendicular to the magnetic field due to
- asymmetric radiative torques, causing any thermal emission from long grains
- to be linearly polarized perpendicular to the field (source?).
- If a molecule in a magnetic field experiences even a small Zeeman splitting
- of its transitions, a population imbalance of one linear polarization over
- the other due to pumping by anisotropic raditaion can cause an observable
- net polarization 
+ It is generally expected that dust grains and molecules align themselves
+ perpendicular to the magnetic field due to asymmetric radiative torques,
+ causing any thermal emission from long grains to be linearly polarized
+ perpendicular to the field 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Andersson2015"
+
+\end_inset
+
+.
+ In addition, if a molecule in a magnetic field experiences even a small
+ Zeeman splitting of its transitions, a population imbalance of one linear
+ polarization over the other due to pumping by anisotropic radiation can
+ cause an observable net polarization 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Goldreich1981,Crutcher2012"
@@ -531,7 +744,8 @@ key "Goldreich1981"
 
 .
  The degeneracy in the direction of the magnetic field is usually resolved
- by measuring continnuum emission along with molecular emission 
+ by measuring continnuum emission along with molecular emission, or by measuring
+ several transitions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -543,11 +757,11 @@ key "Crutcher2012"
 \end_layout
 
 \begin_layout Standard
-The stronger the magnetic field is in a region the stronger the alignment
- is of dust and molecules with the field.
+Roughly speaking, the stronger the magnetic field is in a region the stronger
+ the alignment is of dust and molecules with the field.
  Therefore if we see a large dispersion in polarization angles (PAs) in
  a region then we might conclude that the field is weaker compared to a
- region where the PAs are more uniform.
+ region where the PAs are more uniform, assuming low turbulence.
  This idea is formally expressed by the Davis-Chandrasekhar-Fermi (DCF)
  method where the measured dispersion of PAs can be used to calculate a
  value for the plane of the sky component of the magnetic field according
@@ -563,11 +777,12 @@ where
 \begin_inset Formula $\rho$
 \end_inset
 
- is the gas density, 
+ is the gas mass density, 
 \begin_inset Formula $\delta V$
 \end_inset
 
- is the velocity dispersion (what's that? the bandwidth?) and 
+ is the velocity dispersion of the particles in the cloud (and is a measure
+ of the turbulence) and 
 \begin_inset Formula $\delta\phi$
 \end_inset
 
@@ -590,7 +805,7 @@ key "Chandrasekhar1953,Crutcher2012"
  and has seen several extensions and refinements in recent years 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Hildebrand2009,Houde2009"
+key "Houde2004,Hildebrand2009,Houde2009"
 
 \end_inset
 
@@ -599,8 +814,8 @@ key "Hildebrand2009,Houde2009"
 
 \begin_layout Standard
 Since the PA is the critical piece of information that connects polarization
- measurements to the strength of the magnetic field, any effects that reduce
- the polarization percentage or rotate the PA will taint the measurement
+ measurements to the orientation of the magnetic field, any effects that
+ reduce the polarization percentage or rotate the PA will taint the measurement
  of the magnetic field.
  Two important examples of this that concern this report are the presence
  of polarized light due to the telescope's instrumentation 
@@ -616,7 +831,7 @@ key "Hamaker1996,Sault1996,Marrone2008"
  (CP) along the line of sight 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Houde2013,Hezareh2013"
+key "Houde2013,Hezareh2013,Houde2014"
 
 \end_inset
 
@@ -630,8 +845,8 @@ key "Hezareh2013"
 
 , and the ARS effect may be a common occurence in molecular clouds (this
  work), measuring CP simultaneously with LP when doing molecular spectral
- line polarimetry is essential to obtaining accurate measurements of the
- magnetic field.
+ line polarimetry may be essential to obtaining accurate measurements of
+ the magnetic field.
  
 \end_layout
 
@@ -691,7 +906,7 @@ Since the resolution of a telescope goes as
 
  at radio wavelengths.
  To illustrate how we can attain a higher resolution without building a
- massive reflector, consider a dish with a diameter 500m across: this dish
+ massive reflector, consider a dish with a diameter 500 m across: this dish
  gives us high resolution but is beyond our ability to manufacture.
  Imagine now that we remove or obstruct large sections of this reflector.
  The images we would obtain from such a 
@@ -704,11 +919,11 @@ patchy
 
  reflector are now in fact the Fourier transform of the intensity map of
  the object being examined on the sky, much like how the support struts
- on, for example, Hubble cause imaged stars appear to have a superimposed
+ on, for example, Hubble, cause imaged stars to appear to have a superimposed
  cross pattern.
  With radio inteferometry, we obtain the resolution of a large dish by sampling
- the light it would recieve and inferring the true sky image from the measured
- Fourier transform.
+ the light it would receive and inferring the true sky image by inverting
+ the measured Fourier transform.
 \end_layout
 
 \begin_layout Standard
@@ -731,13 +946,15 @@ patchy
 \end_inset
 
  reflector.
- However while the resolution defines the scale of the smallest object that
- is resolvable an interferometer also has a limit on the largest resolvable
- scale, which is defined by the shortest baseline 
+ However, while the resolution defines the scale of the smallest object
+ that is resolvable, an interferometer also has a limit on the largest resolvabl
+e scale, which is defined by the shortest baseline 
 \begin_inset Formula $B_{min}$
 \end_inset
 
  of any two elements in the array.
+ This implies that large spatial emission will be filtered out by the interferom
+eter.
  
 \end_layout
 
@@ -747,9 +964,9 @@ The output of a radio interferometer is the visibility function
 \end_inset
 
 , which is found by correlating the voltage signals from a pair of antennae.
- This correlation is done on-the-fly by an onsite computer called the correlator
- and the raw voltage signals are often discarded after the correlation is
- found due to the prohibitively large amount of data.
+ This correlation is done on-the-fly by an onsite computer, the so-called
+ correlator, and the raw voltage signals are often discarded after the correlati
+on is found due to the prohibitively large amount of data.
  The arguments 
 \begin_inset Formula $u$
 \end_inset
@@ -1988,7 +2205,7 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-I'd like to thank my supervisor Martin Houde for his advice and guidance
+I would like to thank my supervisor Martin Houde for his advice and guidance
  during the last year and for sending me to Hilo, Hawaii for two weeks as
  soon as I finished my classes despite my having only a vague idea of what
  my project would entail and exactly zero research experience in Astronomy.
@@ -1997,16 +2214,51 @@ I'd like to thank my supervisor Martin Houde for his advice and guidance
 \end_layout
 
 \begin_layout Standard
-I'm also grateful to Ramprasad Rao and Josep Miquel Girart who not only
- made my visit to Hilo productive but also warm and fun.
+I am also grateful to Dr.
+ Ramprasad Rao and Prof.
+ Josep Miquel Girart who not only made my visit to Hilo productive but also
+ warm and fun.
  Thank you Josep Miquel and Miquel for accompanying me on my drive up Mauna
  Kea the night before our respective flights.
  
 \end_layout
 
 \begin_layout Standard
-I'm grateful to my friends, roommates, and the rock climbing crew for giving
+I am grateful to my friends, roommates, and the rock climbing crew for giving
  me things to do that are happily unrelated to work.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Andersson et al.(2015)"
+key "Andersson2015"
+
+\end_inset
+
+Andersson, B-G., Lazarian, A., Vaillancourt, J.
+ E.
+ 2015, ARAA, 53, 501-39
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Carroll \\& Ostlie(2006)"
+key "Carroll2006"
+
+\end_inset
+
+Carroll, B.
+ W., Ostlie, D.
+ A.
+ 2006 Pearson, 
+\emph on
+An Introduction to Modern Astrophysics
+\emph default
+.
+ 2nd ed.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -2252,6 +2504,18 @@ Houde, M., Vaillancourt, J.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Houde(2004)"
+key "Houde2004"
+
+\end_inset
+
+Houde, M.
+ 2004, ApJ, 616, L111-L114
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Houde et al.(2013)"
 key "Houde2013"
 
@@ -2360,6 +2624,26 @@ Marrone, D.
  & Rao, R.
  2008, Proc.
  SPIE 7020, 70202B
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Miettinen(2007)"
+key "Miettinen2007"
+
+\end_inset
+
+Miettinen, O.
+ May 2007 
+\begin_inset Quotes eld
+\end_inset
+
+Zeeman effect - Studying Magnetic Fields in Star-Forming Regions
+\begin_inset Quotes erd
+\end_inset
+
+, slide show, University of Helsinki
 \end_layout
 
 \begin_layout Bibliography
@@ -2475,7 +2759,7 @@ key "Vanderlinde2017"
 \end_inset
 
 Vanderlinde, K.
- 
+ July 2017 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2483,7 +2767,19 @@ Radio Telescope Fundamentals
 \begin_inset Quotes erd
 \end_inset
 
-, slide show presentation, Dunlap Summer School, July 2017
+, slide show, Dunlap Summer School
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Zeeman(1897)"
+key "Zeeman1897"
+
+\end_inset
+
+Zeeman, P.
+ 1897, ApJ, 5, 332
 \end_layout
 
 \end_body
