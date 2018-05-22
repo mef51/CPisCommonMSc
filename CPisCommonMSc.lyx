@@ -530,14 +530,9 @@ key "Crutcher2012"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-The Zeeman effect refers to how the presence of a magnetic field can cause
- the spectral line of a molecule to split into several components, where
- the size of the split is proportional to the strength of the magnetic field
- 
+ The presence of a magnetic field can cause the spectral line of a molecule
+ to split into several components, where the size of the split is proportional
+ to the strength of the magnetic field 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Zeeman1897"
@@ -545,8 +540,8 @@ key "Zeeman1897"
 \end_inset
 
 .
- For this effect to be used to measure the interstellar magnetic field the
- presence of Zeeman-sensitive molecules is necessary.
+ For the Zeeman effect to be used to measure the interstellar magnetic field
+ the presence of Zeeman-sensitive molecules is necessary.
  The size of the split 
 \begin_inset Formula $\Delta\nu_{Z}$
 \end_inset
@@ -1169,23 +1164,25 @@ so the complex product is
 \begin{eqnarray}
 V_{a}(t)\star V_{b}(t) & = & \int_{l,m}E_{a}(l,m,t)\,dl\,dm\times\int_{l,m}E_{b}^{*}(l,m,t)\,dl\,dm\nonumber \\
  & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
- &  & \quad e^{-i\phi(l',m',t)-2\pi i(x_{b}l'+y_{b}m')}\,dl\,dm\,dl'\,dm'\nonumber \\
+ &  & \quad e^{-i\phi(l',m',t)-2\pi i(x_{b}l'+y_{b}m')}\,dl'\,dm'\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)-i\phi(l',m',t)}\\
+ &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}\,dl'\,dm'\,dl\,dm\\
  & = & \int_{l,m}A(l,m,t)A^{*}(l,m,t)e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm,
 \end{eqnarray}
 
 \end_inset
 
-where the last line follows since the integral is 0 unless 
-\begin_inset Formula $\phi(l,m,t)=\phi(l',m',t)$
+where the last line follows since 
+\begin_inset Formula $\int_{l,m,}\int_{l',m'}e^{i\phi(l,m,t)}e^{-i\phi(l',m',t)}dl\,dm\,dl'\,dm'=\delta(l-l',m-m')$
 \end_inset
 
 .
  The positional arguments become 
-\begin_inset Formula $\Delta x\equiv x_{a}-x_{b}$
+\begin_inset Formula $u=\Delta x\equiv x_{a}-x_{b}$
 \end_inset
 
  and 
-\begin_inset Formula $\Delta y\equiv y_{a}-y_{b}$
+\begin_inset Formula $v=\Delta y\equiv y_{a}-y_{b}$
 \end_inset
 
 .
@@ -1200,14 +1197,6 @@ where the last line follows since the integral is 0 unless
 \end_inset
 
 where 
-\begin_inset Formula $\Delta x=u$
-\end_inset
-
-, 
-\begin_inset Formula $\Delta y=v$
-\end_inset
-
- and 
 \begin_inset Formula $I(l,m)=\langle|A(l,m)|^{2}\rangle$
 \end_inset
 
@@ -1238,7 +1227,7 @@ reference "eq:ft"
 
 .
  The intensity map is therefore obtained by performing an inverse 2D Fourier
- transform on the visibilities which is of course limited by how well the
+ transform on the visibilities, which is of course limited by how well the
  visibilities have been measured.
  A single pair of antennae samples a single 
 \begin_inset Formula $(u,v)$
@@ -1268,8 +1257,9 @@ key "Thompson2001"
 
 .
  Images formed from poorly sampled visibilities will result in a large number
- of periodic `blobs' or `stripes' that are not real and are purely a side-effect
- of the periodic functions used to perform the Fourier transform.
+ of periodic `blobs' or `stripes' on the image that are not real and are
+ purely a side-effect of the periodic functions used to perform the Fourier
+ transform.
  
 \end_layout
 
@@ -1541,7 +1531,8 @@ key "Högbom1974"
 .
  The beam map, because it is made with observations of a point source, can
  tell us what the pattern of sidelobes is and makes it possible to deconvolve
- the sidelobe pattern from the dirty map, leaving behind the real structure.
+ the sidelobe pattern from the dirty map, leaving behind the approximately
+ real structure.
  This process is called Högbom iteration 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1797,7 +1788,7 @@ key "Sault2008"
 
 .
  The gain coefficients (which are complex-valued) are searched for and found
- iteratively by minimizing the following error heuristic:
+ iteratively by minimizing the following error heuristic
 \begin_inset Formula 
 \begin{equation}
 \epsilon^{2}=\Sigma|\mathcal{V}_{ab}-g_{a}g_{b}^{*}\hat{\mathcal{V}}_{ab}|^{2},\label{eq:selfcal}
@@ -2149,7 +2140,7 @@ target "https://github.com/mef51/SMAData/tree/master/squintscripts"
 
 \family default
  folder which contains all the scripts for generating the figures included
- the paper as well as some extra figures.
+ in the paper, as well as some extra figures.
  The 
 \family typewriter
 paperplots.py
@@ -2176,6 +2167,10 @@ Miriad
 described in the previous section is provided in a separate repository due
  to its potential use for others and can be found at 
 \family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
 
 \begin_inset CommandInset href
 LatexCommand href
