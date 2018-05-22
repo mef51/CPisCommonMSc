@@ -1165,8 +1165,8 @@ so the complex product is
 V_{a}(t)\star V_{b}(t) & = & \int_{l,m}E_{a}(l,m,t)\,dl\,dm\times\int_{l,m}E_{b}^{*}(l,m,t)\,dl\,dm\nonumber \\
  & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
  &  & \quad e^{-i\phi(l',m',t)-2\pi i(x_{b}l'+y_{b}m')}\,dl'\,dm'\,dl\,dm\nonumber \\
- & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)-i\phi(l',m',t)}\\
- &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}\,dl'\,dm'\,dl\,dm\\
+ & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)-i\phi(l',m',t)}\nonumber \\
+ &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}\,dl'\,dm'\,dl\,dm\nonumber \\
  & = & \int_{l,m}A(l,m,t)A^{*}(l,m,t)e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm,
 \end{eqnarray}
 
@@ -2193,6 +2193,49 @@ squint.py
 pip install smautils
 \family default
 ' on the terminal.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+To better understand the star formation process we seek to develop methods
+ for accurately measuring the magnetic field in the interstellar medium.
+ The easiest and most direct way to measure the magnetic field is spectrally
+ and by exploiting the Zeeman splitting of certain molecular transitions.
+ This method however has the disadvantage that most molecular species common
+ in the ISM experience little to no Zeeman splitting, either because the
+ magnetic field is not strong enough to split most lines or because of small
+ Zeeman factors for these molecules.
+ The alternative to Zeeman splitting being developed over the last few decades
+ is to perform polarimetry on either thermal dust emission in the continuum
+ or on molecular spectral lines, which emit linearly polarized emission
+ due to alignment with the magnetic field and, in the case of molecules,
+ due to the Goldreich-Kylafis effect.
+ There are several reasons one may want observations of molecular lines
+ over dust emission, including greater information on cloud dynamics and
+ three-dimensional cloud structure.
+ Since the discovery of circular polarization in Zeeman-insensitive molecules
+ reported in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Houde2013"
+
+\end_inset
+
+, and the evidence that seems to indicate that the source of this CP is
+ from the conversion of background LP as shown in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Hezareh2013"
+
+\end_inset
+
+, it is important to determine how common this conversion effect is in order
+ to limit false measurements of the magnetic field that rely solely on the
+ Goldreich-Kylafis effect.
+ 
 \end_layout
 
 \begin_layout Section
