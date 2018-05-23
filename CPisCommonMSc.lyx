@@ -1176,6 +1176,16 @@ where the last line follows since
 \begin_inset Formula $\int_{l,m,}\int_{l',m'}e^{i\phi(l,m,t)}e^{-i\phi(l',m',t)}dl\,dm\,dl'\,dm'=\delta(l-l',m-m')$
 \end_inset
 
+ and the other terms are relatively constant.
+ This is because even though both antennae measure the same phase, the phase
+ varies extremely quickly across different spatial positions 
+\begin_inset Formula $l$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
 .
  The positional arguments become 
 \begin_inset Formula $u=\Delta x\equiv x_{a}-x_{b}$
@@ -2193,6 +2203,29 @@ squint.py
 pip install smautils
 \family default
 ' on the terminal.
+\end_layout
+
+\begin_layout Section
+Journal Paper
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename cpdraft_may14.pdf
+	lyxscale 20
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
