@@ -755,7 +755,7 @@ key "Goldreich1981"
 
 .
  The degeneracy in the direction of the magnetic field is usually resolved
- by measuring continnuum emission along with molecular emission, or by measuring
+ by measuring continuum emission along with molecular emission, or by measuring
  several molecular transitions 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -857,7 +857,7 @@ key "Hezareh2013"
 
 \end_inset
 
-, and the ARS effect may be a common occurence in molecular clouds (this
+, and the ARS effect may be a common occurrence in molecular clouds (this
  work), measuring CP simultaneously with LP when doing molecular spectral
  line polarimetry may be essential to obtaining accurate measurements of
  the magnetic field.
@@ -935,14 +935,14 @@ patchy
  the object being examined on the sky, much like how the support struts
  on, for example, Hubble, cause imaged stars to appear to have a superimposed
  cross pattern.
- With radio inteferometry, we obtain the resolution of a large dish by sampling
- the light it would receive and inferring the true sky image by inverting
- the measured Fourier transform.
+ With radio interferometry, we obtain the resolution of a large dish by
+ sampling the light it would receive and inferring the true sky image by
+ inverting the measured Fourier transform.
 \end_layout
 
 \begin_layout Standard
 The resolution of the interferometer array is determined by the longest
- baseline seperation 
+ baseline separation 
 \begin_inset Formula $B_{max}$
 \end_inset
 
@@ -1568,7 +1568,7 @@ key "Sault2008"
 \end_inset
 
 .
- It also generates a beam map that gives the response of the inteferometer
+ It also generates a beam map that gives the response of the interferometer
  to a point source based on the location of the antennae in the array and
  the frequency being observed.
  The beam map is necessary because 
@@ -1648,8 +1648,8 @@ The
 \family typewriter
 clean
 \family default
--ing of the dirty map is perfomed by subtracting the entire dirty beam from
- the position where the dirty map is maximum.
+-ing of the dirty map is performed by subtracting the entire dirty beam
+ from the position where the dirty map is maximum.
  The amplitude of the dirty beam is usually normalized to be a fraction
  of the maximum of the dirty map, called the loop gain 
 \begin_inset CommandInset citation
@@ -1907,7 +1907,7 @@ key "Schwab1980,Sault2008"
 \end_inset
 
 .
- By finding the gain coefficients that minimze eq.
+ By finding the gain coefficients that minimize eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2352,7 +2352,7 @@ key "Hezareh2013"
 \end_layout
 
 \begin_layout Section
-Acknowledgements
+Acknowledgments
 \end_layout
 
 \begin_layout Standard
