@@ -285,10 +285,10 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Stars form when clouds of gas and dust collapse gravitationally until they
+Stars form when clouds of gas and dust gravitationally collapse until they
  are hot enough to ignite fusion in their core.
  Assuming that gravity is the dominant force in the star formation process
- one can calculate several parameters of a molecular such as the maximum
+ one can calculate several parameters of a molecular cloud such as the maximum
  mass stable against gravitational collapse (the Jeans mass), given by
 \begin_inset Formula 
 \begin{equation}
@@ -301,39 +301,39 @@ where
 \begin_inset Formula $T$
 \end_inset
 
- is the temperature of the cloud, and 
+ is the temperature of the cloud, 
 \begin_inset Formula $\rho_{0}$
 \end_inset
 
- is its initial density.
+ is its initial density, and 
+\begin_inset Formula $m_{H}$
+\end_inset
+
+ is the mass of hydrogen.
  We can also find the free-fall timescale for such a collapse, given by
-\begin_inset Formula 
-\begin{equation}
-t_{ff}=\Big(\frac{3\pi}{32G\rho_{0}}\Big)^{1/2},
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $\rho_{0}$
-\end_inset
-
- is again the initial density of the cloud 
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Carroll2006"
 
 \end_inset
 
-.
- 
+
+\begin_inset Formula 
+\begin{equation}
+t_{ff}=\Big(\frac{3\pi}{32G\rho_{0}}\Big)^{1/2}.
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 However, the presence of turbulence and magnetic fields in a molecular cloud
  complicates star formation, either by slowing down the collapse or preventing
  it from happening at all.
- Developing methods of measuring and characterizing turbulence and magnetic
+ Developing methods for measuring and characterizing turbulence and magnetic
  fields in molecular clouds is therefore an important research focus in
  star formation.
  This report focuses on polarimetry, the dominant method for measuring the
@@ -344,7 +344,7 @@ However, the presence of turbulence and magnetic fields in a molecular cloud
 The magnetic field in a molecular cloud can provide support against gravitationa
 l collapse and the strength of the field can determine the timescale at
  which collapse happens.
- The critical mass of a cloud with a magnetic field and ignoring turbulence
+ The critical mass of a cloud with a magnetic field, while ignoring turbulence,
  is given by
 \begin_inset Formula 
 \begin{equation}
@@ -370,7 +370,7 @@ key "Nakano1978,Crutcher2012"
 \end_inset
 
  are called subcritical and are supported against collapse by the magnetic
- field, while clouds with a mass higher than 
+ field, while supercritical clouds with a mass higher than 
 \begin_inset Formula $M_{\Phi}$
 \end_inset
 
@@ -383,8 +383,8 @@ key "Nakano1978,Crutcher2012"
 
 .
  In clouds that are subcritical ions are locked to the magnetic field lines
- and only neutral dust and gas can collapse into the core of the cloud,
- eventually causing the mass to increase and become supercritical 
+ and only neutral gas and dust can collapse into the core of the cloud,
+ eventually causing its mass to increase and become supercritical 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -414,16 +414,9 @@ key "Crutcher2012"
 \end_inset
 
 .
- Collapsing clouds that are supported by strong magnetic fields will form
- oblate spheroids since the cloud has more support along the direction perpendic
-ular to the field, which should be observable 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Crutcher2012"
-
-\end_inset
-
-.
+ Also, collapsing clouds that are supported by strong magnetic fields will
+ form oblate spheroids since the cloud has more support along the direction
+ perpendicular to the field.
  In addition, a region with initially parallel field lines will begin to
  
 \begin_inset Quotes eld
@@ -512,7 +505,8 @@ Understanding the details of the star formation process is a driving force
  for developing the methodology of measuring magnetic fields around star-forming
  regions and the interstellar medium.
  In astronomy, new tools for observing the universe frequently reveal surprising
- results and open doors into future fields, and this methodology is no exception.
+ results and open doors into future research fields, and this methodology
+ is no exception.
 \end_layout
 
 \begin_layout Subsection
@@ -520,9 +514,9 @@ Magnetic Fields through the Zeeman Effect
 \end_layout
 
 \begin_layout Standard
-The Zeeman effect makes it possible under certian conditions to directly
- measure the magnetic field along the line of sight in a molecular cloud
- and also has a unique polarization signature 
+The Zeeman effect makes it possible under certain conditions to directly
+ measure the magnetic field strength along the line of sight in a molecular
+ cloud, and it also has a unique polarization signature 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -558,7 +552,7 @@ where
 \begin_inset Formula $B$
 \end_inset
 
- is the magnetic field, and 
+ is the magnetic field strength, and 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -600,22 +594,30 @@ When a spectral line splits it splits into three components that each have
 \begin_inset Formula $B$
 \end_inset
 
- along the plane of the sky.
+ along the plane of the sky (
+\begin_inset Formula $B_{POS}$
+\end_inset
+
+).
  The other two components are the 
 \begin_inset Formula $\sigma$
 \end_inset
 
--lines which are on either side of the central 
+-lines which, on either side of the central 
 \begin_inset Formula $\pi$
 \end_inset
 
--component and are oppositely circularly polarized, the amount by which
- is determined by the strength of the magnetic field along the line-of-sight,
- or 
+-component, are oppositely circularly polarized along the line-of-sight
+ (if the field has a component 
 \begin_inset Formula $B_{LOS}$
 \end_inset
 
-.
+ in that direction) and linearly polarized perpendicular to 
+\begin_inset Formula $B_{POS}$
+\end_inset
+
+, where the amount by which they are polarized is determined by the strength
+ of the magnetic field.
  In principle by measuring the size of the split and the full polarization
  state of the three components one can obtain full information about 
 \begin_inset Formula $B$
@@ -629,9 +631,9 @@ key "Crutcher2012"
 \end_inset
 
 .
- However, except for in OH masers, the Zeeman split is usually smaller than
- the linewidth of the spectral line, which limits the amount of information
- that can be obtained to 
+ However, except for in OH masers in a few cases, the Zeeman split is usually
+ smaller than the linewidth of the spectral line, which limits the amount
+ of information that can be obtained to 
 \begin_inset Formula $B_{LOS}$
 \end_inset
 
@@ -661,9 +663,9 @@ key "Crutcher2012"
 \end_inset
 
 .
- For this reason the discovery of circular polarization in the Zeeman-insensitiv
-e molecule CO was surprising and required a different mechanism to explain
- 
+ For this reason the discovery of circular polarization in the molecule
+ CO was surprising and required a different mechanism to explain in view
+ of its extremely low sensitivity to the Zeeman effect 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Houde2013,Houde2014"
@@ -693,7 +695,7 @@ reference "fig:NGC1333"
  measurements of continuum thermal dust emission or using rotational transitions
  of molecules, like CO.
  Measuring molecular transitions has the advantage of brighter intensities
- compared to measuring thermal dust emission .
+ compared to measuring thermal dust emission.
  In addition, by selecting different molecules we can obtain information
  on gas dynamics and detail about the structure of the cloud.
  This section will give a brief overview of the two methods and will give
@@ -705,8 +707,8 @@ reference "fig:NGC1333"
 The mechanisms that give rise to polarized light from dust versus from molecules
  are, though different, both related to the presence of a magnetic field
  in the local environment.
- It is generally expected that dust grains and molecules align themselves
- perpendicular to the magnetic field due to asymmetric radiative torques,
+ It is generally expected that dust grains align themselves with their long
+ axis perpendicular to the magnetic field due to asymmetric radiative torques,
  causing any thermal emission from long grains to be linearly polarized
  perpendicular to the field 
 \begin_inset CommandInset citation
@@ -716,10 +718,20 @@ key "Andersson2015"
 \end_inset
 
 .
- In addition, if a molecule in a magnetic field experiences even a small
- Zeeman splitting of its transitions, a population imbalance of one linear
- polarization over the other due to pumping by anisotropic radiation can
- cause an observable net polarization 
+ Molecules will also preferentially align to the magnetic field because
+ of the magnetic moment associated with their rotational transitions.
+ In addition, a molecule in a magnetic field in a medium subjected to some
+ anisotropy (e.g., in the ambient radiation field or the optical depth) will
+ exhibit a net linear polarization level due to the resulting imbalance
+ in the populations of the levels leading to the 
+\begin_inset Formula $\pi$
+\end_inset
+
+- and 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+ lines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Goldreich1981,Crutcher2012"
@@ -728,9 +740,13 @@ key "Goldreich1981,Crutcher2012"
 
 .
  This is referred to as the Goldreich-Kylafis (GK) effect and results in
- molecules to emitting a small percentage of radiation that is linearly
- polarized either perpendicular or parallel to the plane of the sky component
- of the magnetic field 
+ molecules emitting a small percentage of radiation that is linearly polarized
+ either perpendicular or parallel to the plane of the sky component of the
+ magnetic field 
+\begin_inset Formula $B_{POS}$
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Goldreich1981"
@@ -740,7 +756,7 @@ key "Goldreich1981"
 .
  The degeneracy in the direction of the magnetic field is usually resolved
  by measuring continnuum emission along with molecular emission, or by measuring
- several transitions 
+ several molecular transitions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Crutcher2012"
@@ -752,15 +768,19 @@ key "Crutcher2012"
 \end_layout
 
 \begin_layout Standard
-Roughly speaking, the stronger the magnetic field is in a region the stronger
- the alignment is of dust and molecules with the field.
- Therefore if we see a large dispersion in polarization angles (PAs) in
- a region then we might conclude that the field is weaker compared to a
- region where the PAs are more uniform, assuming low turbulence.
+If we imagine molecules in a cloud subject to the effects of both a local
+ magnetic field and turbulent motion, then we would expect that the stronger
+ the magnetic field is relative to the turbulence in that region the better
+ the alignment is of dust and molecules with the field, since turbulence
+ would have the effect of disturbing this alignment.
+ Therefore if we observe a large dispersion in polarization angles (PAs)
+ in a region then we might conclude that the field there is weaker than
+ in a region where the PAs are more uniform, assuming the same level of
+ turbulence.
  This idea is formally expressed by the Davis-Chandrasekhar-Fermi (DCF)
- method where the measured dispersion of PAs can be used to calculate a
- value for the plane of the sky component of the magnetic field according
- to 
+ method where the measured dispersion of PAs and particle velocities can
+ be used to calculate a value for the plane of the sky component of the
+ magnetic field according to 
 \begin_inset Formula 
 \begin{equation}
 B_{POS}=\sqrt{4\pi\rho}\frac{\delta V}{\delta\phi},
@@ -777,7 +797,7 @@ where
 \end_inset
 
  is the velocity dispersion of the particles in the cloud (and is a measure
- of the turbulence) and 
+ of the level of turbulence) and 
 \begin_inset Formula $\delta\phi$
 \end_inset
 
@@ -797,7 +817,7 @@ key "Chandrasekhar1953,Crutcher2012"
 
 \end_inset
 
- and has seen several extensions and refinements in recent years 
+, and has seen several extensions and refinements in recent years 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Houde2004,Hildebrand2009,Houde2009"
@@ -810,8 +830,7 @@ key "Houde2004,Hildebrand2009,Houde2009"
 \begin_layout Standard
 Since the PA is the critical piece of information that connects polarization
  measurements to the orientation of the magnetic field, any effects that
- reduce the polarization percentage or rotate the PA will taint the measurement
- of the magnetic field.
+ rotate the PA will taint the measurement of the magnetic field.
  Two important examples of this that concern this report are the presence
  of polarized light due to the telescope's instrumentation 
 \begin_inset CommandInset citation
@@ -822,8 +841,8 @@ key "Hamaker1996,Sault1996,Marrone2008"
 \end_inset
 
  and anisotropic resonant scattering (ARS) from molecular transitions, which
- in principle converts linear polarization (LP) to circular polarization
- (CP) along the line of sight 
+ can convert linear polarization (LP) to circular polarization (CP) along
+ the line of sight 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Houde2013,Hezareh2013,Houde2014"
@@ -880,7 +899,7 @@ Radio interferometry is a technique for obtaining high-resolution maps of
 \end_layout
 
 \begin_layout Standard
-Since the resolution of a telescope goes as 
+Since the angular resolution of a telescope goes as 
 \begin_inset Formula $\theta\propto\lambda/D$
 \end_inset
 
@@ -961,7 +980,7 @@ The output of a radio interferometer is the visibility function
 , which is found by correlating the voltage signals from a pair of antennae.
  This correlation is done on-the-fly by an onsite computer, the so-called
  correlator, and the raw voltage signals are often discarded after the correlati
-on is found due to the prohibitively large amount of data.
+on is computed due to the prohibitively large amount of data.
  The arguments 
 \begin_inset Formula $u$
 \end_inset
@@ -1019,7 +1038,7 @@ where
  is defined by 
 \begin_inset Formula 
 \begin{equation}
-\langle V_{a}(t)\star V_{b}(t)\rangle=\lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}V_{a}(t)V_{b}^{*}(t-\tau)dt.
+\langle V_{a}(t)\star V_{b}(t)\rangle=\lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}V_{a}(t)V_{b}^{*}(t-\tau)dt.\label{eq:timeav}
 \end{equation}
 
 \end_inset
@@ -1068,7 +1087,7 @@ t radiation observed from a large distance appears to be coherent
 \begin_inset CommandInset citation
 LatexCommand citep
 after "for a derivation"
-before "see chap. 14 of"
+before "see Chap. 14 of"
 key "Thompson2001"
 
 \end_inset
@@ -1124,7 +1143,7 @@ Consider two antennae
  is given by
 \begin_inset Formula 
 \begin{eqnarray}
-E_{a}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)},\\
+E_{a}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\\
 E_{b}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{b}l+y_{b}m)},
 \end{eqnarray}
 
@@ -1147,38 +1166,59 @@ where
 \begin_inset Formula $E_{b}(l,m,t)$
 \end_inset
 
- since the waves are coherent.
+ since the waves appear as coherent.
  The total voltage response of the antenna's receiver is the superposition
  of all electromagnetic waves from each position of the object, which can
  be written as: 
 \begin_inset Formula 
 \begin{eqnarray}
-V_{a}(t) & = & \int\int E_{a}(l,m,t)\,dl\,dm,\\
-V_{b}(t) & = & \int\int E_{b}(l,m,t)\,dl\,dm,
+V_{a}(t) & = & \int_{l,m}E_{a}(l,m,t)\,dl\,dm=\int_{l,m}\int_{\nu}E_{a}(l,m,\nu)e^{2\pi i\nu t}d\nu\,dl\,dm\\
+V_{b}(t) & = & \int_{l,m}E_{b}(l,m,t)\,dl\,dm=\int_{l,m}\int_{\nu}E_{b}(l,m,\nu)e^{2\pi i\nu t}d\nu\,dl\,dm,
 \end{eqnarray}
 
 \end_inset
 
-so the complex product is 
+where we chose to express 
+\begin_inset Formula $E(l,m,t)$
+\end_inset
+
+ in terms of its Fourier transform.
+ We will also write 
+\begin_inset Formula $E(l,m,\nu)=A(l,m,\nu)e^{i\phi(l,m,\nu)}e^{2\pi i(xl+ym)}$
+\end_inset
+
+.
+ The complex product is now
 \begin_inset Formula 
 \begin{eqnarray}
-V_{a}(t)\star V_{b}(t) & = & \int_{l,m}E_{a}(l,m,t)\,dl\,dm\times\int_{l,m}E_{b}^{*}(l,m,t)\,dl\,dm\nonumber \\
- & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
- &  & \quad e^{-i\phi(l',m',t)-2\pi i(x_{b}l'+y_{b}m')}\,dl'\,dm'\,dl\,dm\nonumber \\
- & = & \int_{l,m}\int_{l',m'}A(l,m,t)A^{*}(l',m',t)e^{i\phi(l,m,t)-i\phi(l',m',t)}\nonumber \\
- &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}\,dl'\,dm'\,dl\,dm\nonumber \\
- & = & \int_{l,m}A(l,m,t)A^{*}(l,m,t)e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm,
+V_{a}(t)V_{b}^{*}(\lambda) & = & \int_{l,m}\int_{\nu}E_{a}(l,m,\nu)e^{2\pi i\nu t}d\nu\,dl\,dm\times\int_{l,m}\int_{\nu}E_{b}^{*}(l,m,\nu)e^{-2\pi i\nu\lambda}\,d\nu\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{l',m'}\int_{\nu}\int_{\nu'}A(l,m,\nu)A^{*}(l',m',\nu')e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
+ &  & \quad e^{-i\phi(l',m',\nu')-2\pi i(x_{b}l'+y_{b}m')}e^{2\pi i\nu t}e^{-2\pi i\nu'\lambda}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{l',m'}\int_{\nu}\int_{\nu'}A(l,m,\nu)A^{*}(l',m',\nu')e^{i\phi(l,m,\nu)-i\phi(l',m',\nu')}\nonumber \\
+ &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}e^{2\pi i(\nu t-\nu'\lambda)}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu(t-\lambda)}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm,
 \end{eqnarray}
 
 \end_inset
 
 where the last line follows since 
-\begin_inset Formula $\int_{l,m,}\int_{l',m'}e^{i\phi(l,m,t)}e^{-i\phi(l',m',t)}dl\,dm\,dl'\,dm'=\delta(l-l',m-m')$
+\begin_inset Formula 
+\begin{equation}
+\int_{l,m,}\int_{l',m'}\int_{\nu}\int_{\nu'}e^{i\phi(l,m,\nu)}e^{-i\phi(l',m',\nu')}\,d\nu\,d\nu'\,dl\,dm\,dl'\,dm'=\delta(\nu-\nu',l-l',m-m'),
+\end{equation}
+
 \end_inset
 
- and the other terms are relatively constant.
- This is because even though both antennae measure the same phase, the phase
- varies extremely quickly across different spatial positions 
+ and the other terms are constant relative to the 
+\begin_inset Formula $e^{i\phi}$
+\end_inset
+
+ terms.
+ This is because even though both antennae measure the same phase 
+\begin_inset Formula $\phi(l,m,\nu)$
+\end_inset
+
+, it varies extremely quickly across different spatial positions 
 \begin_inset Formula $l$
 \end_inset
 
@@ -1187,7 +1227,23 @@ where the last line follows since
 \end_inset
 
 .
- The positional arguments become 
+ If we set 
+\begin_inset Formula $\lambda=t-\tau$
+\end_inset
+
+ where 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is the time lag set by the correlator then we have 
+\begin_inset Formula 
+\begin{equation}
+V_{a}(t)V_{b}^{*}(t-\tau)=\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm,
+\end{equation}
+
+\end_inset
+
+The positional arguments become 
 \begin_inset Formula $u=\Delta x\equiv x_{a}-x_{b}$
 \end_inset
 
@@ -1196,18 +1252,26 @@ where the last line follows since
 \end_inset
 
 .
- After time-averaging we obtain 
+ Then, after time-averaging according to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:timeav"
+
+\end_inset
+
+) we finally obtain 
 \begin_inset Formula 
 \begin{eqnarray}
-\langle V_{a}(t)\star V_{b}(t)\rangle & = & \int_{l,m}\langle|A(l,m)|^{2}\rangle e^{2\pi i(\Delta xl+\Delta ym)}\,dl\,dm\nonumber \\
- & = & \int_{l,m}I(l,m)e^{2\pi i(ul+vm)}\,dl\,dm\nonumber \\
- & = & \mathcal{F}\{I(l,m)\},\label{eq:ft}
+\langle V_{a}(t)V_{b}^{*}(t-\tau)\rangle & = & \lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm\,dt\nonumber \\
+ & = & \int_{l,m}\int_{\nu}I(l,m,\nu)e^{2\pi i\nu\tau}e^{2\pi i(ul+vm)}\,d\nu\,dl\,dm\nonumber \\
+ & = & \mathcal{F}\{I(l,m,\nu)\},\label{eq:ft}
 \end{eqnarray}
 
 \end_inset
 
 where 
-\begin_inset Formula $I(l,m)=\langle|A(l,m)|^{2}\rangle$
+\begin_inset Formula $I(l,m)=|A(l,m)|^{2}$
 \end_inset
 
  
@@ -1219,18 +1283,26 @@ key "Thompson2001,Vanderlinde2017"
 \end_inset
 
 .
- 
+ Thus at a given frequency of observation 
+\begin_inset Formula $\nu$
+\end_inset
+
+ we can say that 
+\begin_inset Formula $\langle V_{a}(t)V_{b}^{*}(t-\tau)\rangle_{\nu}=\mathcal{F}\{I(l,m,\nu)\}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Equation 
+Equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:ft"
 
 \end_inset
 
- shows the Fourier transform connection between the cross-correlation and
+) shows the Fourier transform connection between the cross-correlation and
  the intensity map 
 \begin_inset Formula $I(l,m)$
 \end_inset
@@ -1290,8 +1362,8 @@ To obtain maps at different frequencies the signal must be binned into different
 
  to sample the other state.
  To obtain full polarimetric information for the visibilities from a single
- baseline, the two antennae must correlate their responses to every combination
- of polarization state 
+ baseline, the two antennae must correlate their responses to all combinations
+ of polarization states 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Hamaker1996,Sault1996,Thompson2001,Marrone2008"
@@ -1345,7 +1417,7 @@ reference "fig:qwp"
 
 \end_inset
 
- shows the SMA's QWP.
+ shows the SMA's QWP assembly.
 \end_layout
 
 \begin_layout Standard
@@ -1462,8 +1534,8 @@ implements and performs most of the required computational tasks for calibrating
  calibrated against measurements of quasars that are taken during the same
  night, since certain quasars can be assumed to be steady, bright, unchanging
  sources.
- The calibration involves calculating gain coefficients to correctly scale
- the visibilities to their true intensities.
+ This involves calculating gain coefficients to correctly scale the visibilities
+ to their true intensities.
  The data presented in this paper were already calibrated by Dr.
  Rao and Dr.
  Girart, and so the calibration process will not be explained in detail
@@ -1524,7 +1596,7 @@ key "Högbom1974,Thompson2001,Sault2008"
 \end_inset
 
 .
- In inteferometry the 
+ In interferometry the 
 \begin_inset Formula $uv$
 \end_inset
 
@@ -2210,6 +2282,14 @@ Journal Paper
 \end_layout
 
 \begin_layout Standard
+The following paper has been submitted for publication to 
+\emph on
+Monthly Notices of the Royal Astronomical Society 
+\emph default
+(MNRAS).
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -2240,7 +2320,7 @@ To better understand the star formation process we seek to develop methods
  This method however has the disadvantage that most molecular species common
  in the ISM experience little to no Zeeman splitting, either because the
  magnetic field is not strong enough to split most lines or because of small
- Zeeman factors for these molecules.
+ Zeeman sensitivities for these molecules.
  The alternative to Zeeman splitting being developed over the last few decades
  is to perform polarimetry on either thermal dust emission in the continuum
  or on molecular spectral lines, which emit linearly polarized emission
@@ -2249,8 +2329,8 @@ To better understand the star formation process we seek to develop methods
  There are several reasons one may want observations of molecular lines
  over dust emission, including greater information on cloud dynamics and
  three-dimensional cloud structure.
- Since the discovery of circular polarization in Zeeman-insensitive molecules
- reported in 
+ Since the discovery of circular polarization in molecules weakly sensitive
+ to the Zeeman effect reported in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Houde2013"
@@ -2276,10 +2356,11 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-I would like to thank my supervisor Martin Houde for his advice and guidance
- during the last year and for sending me to Hilo, Hawaii for two weeks as
- soon as I finished my classes despite my having only a vague idea of what
- my project would entail and exactly zero research experience in Astronomy.
+I would like to thank my supervisor Dr.
+ Martin Houde for his advice and guidance during the last year and for sending
+ me to Hilo, Hawaii for two weeks as soon as I finished my classes despite
+ my having only a vague idea of what my project would entail and exactly
+ zero research experience in Astronomy.
  Baptism by fire works.
  
 \end_layout
@@ -2289,8 +2370,8 @@ I am also grateful to Dr.
  Ramprasad Rao and Prof.
  Josep Miquel Girart who not only made my visit to Hilo productive but also
  warm and fun.
- Thank you Josep Miquel and Miquel for accompanying me on my drive up Mauna
- Kea the night before our respective flights.
+ Thank you Josep Miquel and Miquel for accompanying me on my last-minute
+ drive up Mauna Kea the night before our respective flights.
  
 \end_layout
 
