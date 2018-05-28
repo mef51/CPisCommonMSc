@@ -616,11 +616,10 @@ When a spectral line splits it splits into three components that each have
 \begin_inset Formula $B_{POS}$
 \end_inset
 
-, where the amount by which they are polarized is determined by the strength
- of the magnetic field.
+.
  In principle by measuring the size of the split and the full polarization
  state of the three components one can obtain full information about 
-\begin_inset Formula $B$
+\begin_inset Formula $\vec{\boldsymbol{B}}$
 \end_inset
 
  
@@ -631,7 +630,7 @@ key "Crutcher2012"
 \end_inset
 
 .
- However, except for in OH masers in a few cases, the Zeeman split is usually
+ However, except for OH masers in a few cases, the Zeeman split is usually
  smaller than the linewidth of the spectral line, which limits the amount
  of information that can be obtained to 
 \begin_inset Formula $B_{LOS}$
@@ -664,8 +663,8 @@ key "Crutcher2012"
 
 .
  For this reason the discovery of circular polarization in the molecule
- CO was surprising and required a different mechanism to explain in view
- of its extremely low sensitivity to the Zeeman effect 
+ CO was surprising and required a different mechanism to explain it, in
+ view of its extremely low sensitivity to the Zeeman effect 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Houde2013,Houde2014"
@@ -731,7 +730,7 @@ key "Andersson2015"
 \begin_inset Formula $\sigma-$
 \end_inset
 
- lines 
+lines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Goldreich1981,Crutcher2012"
@@ -770,17 +769,16 @@ key "Crutcher2012"
 \begin_layout Standard
 If we imagine molecules in a cloud subject to the effects of both a local
  magnetic field and turbulent motion, then we would expect that the stronger
- the magnetic field is relative to the turbulence in that region the better
- the alignment is of dust and molecules with the field, since turbulence
- would have the effect of disturbing this alignment.
- Therefore if we observe a large dispersion in polarization angles (PAs)
- in a region then we might conclude that the field there is weaker than
- in a region where the PAs are more uniform, assuming the same level of
- turbulence.
+ the magnetic field is relative to the turbulence in that region the lower
+ the dispersion in polarization angles (PAs), since turbulence has the effect
+ of disturbing the orientation of the field.
+ Therefore if we observe a large dispersion in PAs in a region then we might
+ conclude that the field there is weaker than in a region where the PAs
+ are more uniform, assuming the same level of turbulence.
  This idea is formally expressed by the Davis-Chandrasekhar-Fermi (DCF)
  method where the measured dispersion of PAs and particle velocities can
- be used to calculate a value for the plane of the sky component of the
- magnetic field according to 
+ be used to calculate the strength of the plane of the sky component of
+ the magnetic field according to 
 \begin_inset Formula 
 \begin{equation}
 B_{POS}=\sqrt{4\pi\rho}\frac{\delta V}{\delta\phi},
@@ -830,7 +828,7 @@ key "Houde2004,Hildebrand2009,Houde2009"
 \begin_layout Standard
 Since the PA is the critical piece of information that connects polarization
  measurements to the orientation of the magnetic field, any effects that
- rotate the PA will taint the measurement of the magnetic field.
+ change the PA will taint the measurement of the magnetic field.
  Two important examples of this that concern this report are the presence
  of polarized light due to the telescope's instrumentation 
 \begin_inset CommandInset citation
@@ -967,8 +965,8 @@ e scale, which is defined by the shortest baseline
 \end_inset
 
  of any two elements in the array.
- This implies that large spatial emission will be filtered out by the interferom
-eter.
+ This implies that large-scale spatial emission will be filtered out by
+ the interferometer.
  
 \end_layout
 
@@ -977,7 +975,7 @@ The output of a radio interferometer is the visibility function
 \begin_inset Formula $\mathcal{V}(u,v)$
 \end_inset
 
-, which is found by correlating the voltage signals from a pair of antennae.
+, which is found by correlating the voltage signals from all pairs of antennae.
  This correlation is done on-the-fly by an onsite computer, the so-called
  correlator, and the raw voltage signals are often discarded after the correlati
 on is computed due to the prohibitively large amount of data.
@@ -989,7 +987,8 @@ on is computed due to the prohibitively large amount of data.
 \begin_inset Formula $v$
 \end_inset
 
- are related to the distances between the two antennae.
+ are called the spatial frequencies and measure the distance between the
+ two antennae in wavelengths.
  Given antennae 
 \begin_inset Formula $a$
 \end_inset
@@ -1143,13 +1142,17 @@ Consider two antennae
  is given by
 \begin_inset Formula 
 \begin{eqnarray}
-E_{a}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\\
-E_{b}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+2\pi i(x_{b}l+y_{b}m)},
+E_{a}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+i\frac{2\pi}{\lambda}(x_{a}l+y_{a}m)}\\
+E_{b}(l,m,t) & = & A(l,m,t)e^{i\phi(l,m,t)+i\frac{2\pi}{\lambda}(x_{b}l+y_{b}m)},
 \end{eqnarray}
 
 \end_inset
 
 where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the wavelength of observation, 
 \begin_inset Formula $A(l,m,t)$
 \end_inset
 
@@ -1157,7 +1160,7 @@ where
 \begin_inset Formula $\phi(l,m,t)$
 \end_inset
 
- is the phase of the wave which van Cittert-Zernicke tells us is the same
+ is the phase of the wave, which van Cittert-Zernicke tells us is the same
  in both 
 \begin_inset Formula $E_{a}(l,m,t)$
 \end_inset
@@ -1184,19 +1187,19 @@ where we chose to express
 
  in terms of its Fourier transform.
  We will also write 
-\begin_inset Formula $E(l,m,\nu)=A(l,m,\nu)e^{i\phi(l,m,\nu)}e^{2\pi i(xl+ym)}$
+\begin_inset Formula $E(l,m,\nu)=A(l,m,\nu)e^{i\phi(l,m,\nu)}e^{i\frac{2\pi}{\lambda}(xl+ym)}$
 \end_inset
 
 .
  The complex product is now
 \begin_inset Formula 
 \begin{eqnarray}
-V_{a}(t)V_{b}^{*}(\lambda) & = & \int_{l,m}\int_{\nu}E_{a}(l,m,\nu)e^{2\pi i\nu t}d\nu\,dl\,dm\times\int_{l,m}\int_{\nu}E_{b}^{*}(l,m,\nu)e^{-2\pi i\nu\lambda}\,d\nu\,dl\,dm\nonumber \\
- & = & \int_{l,m}\int_{l',m'}\int_{\nu}\int_{\nu'}A(l,m,\nu)A^{*}(l',m',\nu')e^{i\phi(l,m,t)+2\pi i(x_{a}l+y_{a}m)}\nonumber \\
- &  & \quad e^{-i\phi(l',m',\nu')-2\pi i(x_{b}l'+y_{b}m')}e^{2\pi i\nu t}e^{-2\pi i\nu'\lambda}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
+V_{a}(t)V_{b}^{*}(s) & = & \int_{l,m}\int_{\nu}E_{a}(l,m,\nu)e^{2\pi i\nu t}d\nu\,dl\,dm\times\int_{l',m'}\int_{\nu'}E_{b}^{*}(l',m',\nu')e^{-2\pi i\nu's}\,d\nu'\,dl'\,dm'\nonumber \\
+ & = & \int_{l,m}\int_{l',m'}\int_{\nu}\int_{\nu'}A(l,m,\nu)A^{*}(l',m',\nu')e^{i\phi(l,m,t)+i\frac{2\pi}{\lambda}(x_{a}l+y_{a}m)}\nonumber \\
+ &  & \quad e^{-i\phi(l',m',\nu')-i\frac{2\pi}{\lambda}(x_{b}l'+y_{b}m')}e^{2\pi i\nu t}e^{-2\pi i\nu's}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
  & = & \int_{l,m}\int_{l',m'}\int_{\nu}\int_{\nu'}A(l,m,\nu)A^{*}(l',m',\nu')e^{i\phi(l,m,\nu)-i\phi(l',m',\nu')}\nonumber \\
- &  & \quad e^{2\pi i(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}e^{2\pi i(\nu t-\nu'\lambda)}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
- & = & \int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu(t-\lambda)}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm,
+ &  & \quad e^{i\frac{2\pi}{\lambda}(x_{a}l-x_{b}l'+y_{a}m-y_{b}m')}e^{2\pi i(\nu t-\nu's)}\,d\nu\,d\nu'\,dl'\,dm'\,dl\,dm\nonumber \\
+ & = & \int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu(t-s)}e^{i\frac{2\pi}{\lambda}(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm,
 \end{eqnarray}
 
 \end_inset
@@ -1226,33 +1229,46 @@ where the last line follows since
 \begin_inset Formula $m$
 \end_inset
 
-.
- If we set 
-\begin_inset Formula $\lambda=t-\tau$
+, and frequency 
+\begin_inset Formula $\nu$
 \end_inset
 
- where 
+.
+ The positional arguments of the antennae are related to the spatial frequencies
+ 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+ by
+\begin_inset Formula 
+\begin{eqnarray}
+u & = & \frac{\Delta x}{\lambda}=(x_{a}-x_{b})/\lambda\\
+v & = & \frac{\Delta y}{\lambda}=(y_{a}-y_{b})/\lambda.
+\end{eqnarray}
+
+\end_inset
+
+If we now set 
+\begin_inset Formula $s=t-\tau$
+\end_inset
+
+, where 
 \begin_inset Formula $\tau$
 \end_inset
 
  is the time lag set by the correlator then we have 
 \begin_inset Formula 
 \begin{equation}
-V_{a}(t)V_{b}^{*}(t-\tau)=\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm,
+V_{a}(t)V_{b}^{*}(t-\tau)=\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(ul+vm)}\,d\nu\,dl\,dm,
 \end{equation}
 
 \end_inset
 
-The positional arguments become 
-\begin_inset Formula $u=\Delta x\equiv x_{a}-x_{b}$
-\end_inset
-
- and 
-\begin_inset Formula $v=\Delta y\equiv y_{a}-y_{b}$
-\end_inset
-
-.
- Then, after time-averaging according to eq.
+After time-averaging according to eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1263,7 +1279,7 @@ reference "eq:timeav"
 ) we finally obtain 
 \begin_inset Formula 
 \begin{eqnarray}
-\langle V_{a}(t)V_{b}^{*}(t-\tau)\rangle & = & \lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(\Delta xl+\Delta ym)}\,d\nu\,dl\,dm\,dt\nonumber \\
+\langle V_{a}(t)V_{b}^{*}(t-\tau)\rangle & = & \lim_{T\rightarrow\infty}\frac{1}{2T}\int_{-T}^{T}\int_{l,m}\int_{\nu}|A(l,m,\nu)|^{2}e^{2\pi i\nu\tau}e^{2\pi i(ul+vm)}\,d\nu\,dl\,dm\,dt\nonumber \\
  & = & \int_{l,m}\int_{\nu}I(l,m,\nu)e^{2\pi i\nu\tau}e^{2\pi i(ul+vm)}\,d\nu\,dl\,dm\nonumber \\
  & = & \mathcal{F}\{I(l,m,\nu)\},\label{eq:ft}
 \end{eqnarray}
@@ -1302,8 +1318,8 @@ reference "eq:ft"
 
 \end_inset
 
-) shows the Fourier transform connection between the cross-correlation and
- the intensity map 
+) shows the Fourier transform connection between the cross- correlation
+ and the intensity map 
 \begin_inset Formula $I(l,m)$
 \end_inset
 
@@ -2278,7 +2294,7 @@ pip install smautils
 \end_layout
 
 \begin_layout Section
-Journal Paper
+Non-Zeeman Circular Polarization of Molecular Spectral Lines in the ISM
 \end_layout
 
 \begin_layout Standard
